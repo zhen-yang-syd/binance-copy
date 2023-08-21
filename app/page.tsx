@@ -2,9 +2,10 @@ import { CgMenuGridR } from 'react-icons/cg'
 import { BsFillCaretDownFill } from 'react-icons/bs'
 import { nav, rightNav } from '@/utils/constants'
 import { Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night } from '@/public'
+import ScrollBar from '@/components/ScrollBar'
 export default function Home() {
   return (
-    <main className="w-full bg-[#ffffff]">
+    <main className="w-full bg-[#ffffff] relative">
         <header className="w-full px-[16px] h-[64px] flex items-center justify-between">
           <div className='flex flex-row items-center h-full'>
             <a className="header-icon w-[120px] h-[24px] block ml-[8px]">
@@ -48,7 +49,9 @@ export default function Home() {
             <img src={Night.src} alt="" className='ml-[8px] -mb-[0px] mr-[18px]' />
           </div>
         </header>
+        <ScrollBar />
         <div className='h-[3000px]'></div>
+        
     </main>
   )
 }
