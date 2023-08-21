@@ -1,9 +1,12 @@
+'use client'
 import { CgMenuGridR } from 'react-icons/cg'
 import { BsFillCaretDownFill } from 'react-icons/bs'
 import { nav, rightNav, leftNav1, leftNav2, leftNav3, filter } from '@/utils/constants'
 import { Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night, Past30Days } from '@/public'
 import ScrollBar from '@/components/ScrollBar'
+import { useState } from 'react'
 export default function Home() {
+  const [empty, isEmpty] = useState(true)
   return (
     <main className="w-full bg-[#ffffff] relative">
       <header className="w-full px-[16px] h-[64px] flex items-center justify-between">
@@ -103,7 +106,8 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div className='w-[1570px] h-[658px] p-[32px]'>
+        {/* <div className='w-[1570px] h-[658px] p-[32px]'> */}
+        <div className='w-[1669px] h-[658px] p-[32px]'>
           <div className='w-full h-full flex flex-col'>
             <div className='mt-[8px] mb-[24px] flex flex-row justify-between'>
               <h1 className='text-[#1E2329] text-[32px] leading-[40px] font-[600]'>Transaction History</h1>
@@ -169,7 +173,34 @@ export default function Home() {
             </div>
             {/* table */}
             <div className='w-full h-[310px]'>
-              <div className='w-full h-[40px] bg-[#f5f5f5] rounded-t-[8px]'></div>
+              <div className='w-full h-[40px] bg-[#f5f5f5] rounded-t-[8px] flex flex-row items-center text-[#707A8A] text-[12px]'>
+                {/* time */}
+                <div className='px-[16px] w-[236px]'>Time</div>
+                {/* type */}
+                <div className='px-[16px] w-[127px]'>Type</div>
+                {/* deposit wallet */}
+                <div className='px-[16px] w-[168px]'>Deposit wallet</div>
+                <div className='w-[32px]'></div>
+                {/* asset */}
+                <div className='px-[16px] w-[127px]'>Asset</div>
+                {/* amount */}
+                <div className='px-[16px] w-[127px]'>Amount</div>
+                {/* destination */}
+                <div className='px-[16px] w-[236px]'>Destination</div>
+                {/* txid */}
+                <div className='px-[16px] w-[270px]'>TxID</div>
+                {/* status */}
+                <div className='px-[16px] w-[222px]'>Status</div>
+              </div>
+              {/* empty */}
+              {empty ? <div className='w-full h-[270px] flex flex-col items-center justify-center py-[24px]'>
+                <div className='w-[96px] h-[96px] mb-[6px] mr-[2px]'>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" className="mirror css-1tx71v4"><path fill-rule="evenodd" clip-rule="evenodd" d="M64 8H26v80h58V28H64V8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4zm-8 12l4 4-4 4-4-4 4-4zM50 18l-3 3 3 3 3-3-3-3z" fill="url(#not-found-data_svg__paint0_linear_22059_32288)"></path><path opacity="0.3" d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z" fill="#929AA5"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z" fill="url(#not-found-data_svg__paint1_linear_22059_32288)"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z" fill="url(#not-found-data_svg__paint2_linear_22059_32288)"></path><defs><linearGradient id="not-found-data_svg__paint0_linear_22059_32288" x1="55" y1="8" x2="55" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5" stop-opacity="0.1"></stop><stop offset="1" stop-color="#929AA5" stop-opacity="0.25"></stop></linearGradient><linearGradient id="not-found-data_svg__paint1_linear_22059_32288" x1="4.172" y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient><linearGradient id="not-found-data_svg__paint2_linear_22059_32288" x1="15" y1="48" x2="55" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient></defs></svg>
+                </div>
+                <span className='text-[#707A8A] text-base'>No records found.</span>
+              </div> : ''}
+              {/* loading */}
+              {/* data */}
             </div>
           </div>
         </div>
