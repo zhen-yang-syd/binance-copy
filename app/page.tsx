@@ -1,6 +1,6 @@
 import { CgMenuGridR } from 'react-icons/cg'
 import { BsFillCaretDownFill } from 'react-icons/bs'
-import { nav, rightNav, leftNav1, leftNav2, leftNav3 } from '@/utils/constants'
+import { nav, rightNav, leftNav1, leftNav2, leftNav3, filter } from '@/utils/constants'
 import { Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night } from '@/public'
 import ScrollBar from '@/components/ScrollBar'
 export default function Home() {
@@ -102,6 +102,28 @@ export default function Home() {
               <span className={`${item.title === 'Transaction History' && 'text-[#1E2326] font-medium -ml-[4px]'}`}>{item.title}</span>
             </div>
           ))}
+        </div>
+        <div className='w-[1570px] h-[658px] p-[32px]'>
+          <div className='w-full h-full flex flex-col'>
+            <div className='mt-[8px] mb-[24px] flex flex-row justify-between'>
+              <h1 className='text-[#1E2329] text-[32px] leading-[40px] font-[600]'>Transaction History</h1>
+              <div className='flex flex-row items-center'>
+                <div className="css-1g353mx mt-[5px]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="css-wg7atv"><path fill="currentColor" d="M4 4h5v2.5H4zM4 17.5h16V20H4z"></path><path fill="currentColor" d="M4 4h2.5v16H4zM17.5 15H20v5h-2.5z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M18.768 7.018l-8.485 8.485-1.768-1.768L17 5.25l.884.884.884.884z" fill="currentColor"></path><path d="M12 4h8v8l-8-8z" fill="currentColor"></path></svg></div>
+                <span className='text-[#707A8A] ml-[4px] text-sm'>Export Transaction Records</span>
+              </div>
+            </div>
+            {/* filter */}
+            <nav className='w-full flex flex-row'>
+              {filter.map((item, index) => (
+                <a className="flex flex-row items-center mr-[20px]" key={index}>
+                  {item}
+                </a>
+              ))}
+            </nav>
+            {/* click filter */}
+            {/* table */}
+
+          </div>
         </div>
       </div>
     </main>

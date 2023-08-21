@@ -33,3 +33,13 @@ export const leftNav3 = [
     { title: 'Account Statement', icon: Account },
     { title: 'Verification', icon: Verification },
 ]
+
+export const filter = [
+    'Crypto',
+    'Fiat',
+    'Transfer',
+    'Distribution',
+    'BNB Convert',
+    'Loan',
+    'Funding Wallet',
+]
