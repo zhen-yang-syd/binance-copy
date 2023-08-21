@@ -53,7 +53,7 @@ export default function Home() {
         </div>
       </header>
       <ScrollBar />
-      <div className='h-[3000px] w-full flex flex-row'>
+      <div className='h-[658px] w-full flex flex-row'>
         <div className='w-[240px] h-[658px] border-r-[1px] border-[#eaecef] mt-[0px] text-[#1E2924] text-sm'>
           {/* nav1 */}
           {leftNav1.map((item, index) => (
@@ -202,6 +202,22 @@ export default function Home() {
               {/* loading */}
               {/* data */}
             </div>
+          </div>
+        </div>
+      </div>
+      {/* footer */}
+      <div className='w-full flex justify-center pt-[48px]'>
+        <div className='w-[1248px] h-[691px] flex flex-col'>
+          <div className='w-full h-[606px] pb-[16px]'>
+            {/* about us */}
+            {/* products */}
+            {/* service */}
+            {/* support */}
+            {/* learn */}
+            {/* community */}
+          </div>
+          <div className='border-t-[1px] border-[#eaecef]'>
+            <div className='text-[#707A8A] text-sm py-[32px] text-center'>Binance © 2023</div>
           </div>
         </div>
       </div>
