@@ -168,6 +168,9 @@ export default function Home() {
               </div>
             </div>
             {/* table */}
+            <div className='w-full h-[310px]'>
+              <div className='w-full h-[40px] bg-[#f5f5f5] rounded-t-[8px]'></div>
+            </div>
           </div>
         </div>
       </div>
