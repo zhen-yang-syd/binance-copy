@@ -57,23 +57,53 @@ export default function Home() {
             <div className="flex flex-row items-center ml-[22px] h-[48px]" key={index}>
               <div className='w-[30px]'>
                 <img src={item.icon.src} alt="" className={`
-                w-auto h-[20px] mr-[8px] ${
-                  item.title === 'Margin' ? 'mb-[2px] ml-[1px]' 
-                  : item.title === 'Futures' ? 'mb-[2px] ml-[1px]' 
-                  : item.title === 'Options' ? 'mb-[2px] ml-[1px]' 
-                  : item.title === 'Earn' ? 'h-[27px] mb-[2px] -ml-[1px]' 
-                  : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
-                }
+                w-auto h-[20px] mr-[8px] ${item.title === 'Margin' ? 'mb-[2px] ml-[1px]'
+                    : item.title === 'Futures' ? 'mb-[2px] ml-[1px]'
+                      : item.title === 'Options' ? 'mb-[2px] ml-[1px]'
+                        : item.title === 'Earn' ? 'h-[27px] mb-[2px] -ml-[1px]'
+                          : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
+                  }
                 `} />
               </div>
               <span>{item.title}</span>
             </div>
           ))}
+          <div className='mx-[16px] my-[8px] bg-[#eaecef] h-[1px]'></div>
           {/* nav2 */}
+          {leftNav2.map((item, index) => (
+            <div className="flex flex-row items-center ml-[22px] h-[48px]" key={index}>
+              <div className='w-[30px]'>
+                <img src={item.icon.src} alt="" className={`
+                w-auto h-[20px] mr-[8px] ${item.title === 'Margin' ? 'mb-[2px] ml-[1px]'
+                    : item.title === 'Futures' ? 'mb-[2px] ml-[1px]'
+                      : item.title === 'Options' ? 'mb-[2px] ml-[1px]'
+                        : item.title === 'Earn' ? 'h-[27px] mb-[2px] -ml-[1px]'
+                          : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
+                  }
+                `} />
+              </div>
+              <span>{item.title}</span>
+            </div>
+          ))}
+          <div className='mx-[16px] my-[8px] bg-[#eaecef] h-[1px]'></div>
           {/* nav3 */}
+          {leftNav3.map((item, index) => (
+            <div className={`flex flex-row items-center pl-[22px] h-[48px] ${item.title === 'Transaction History' && 'bg-[#f5f5f5] border-l-[4px] border-[#f0b90b]'}`} key={index}>
+              <div className='w-[30px]'>
+                <img src={item.icon.src} alt="" className={`
+                w-auto h-[20px] mr-[8px] ${item.title === 'Margin' ? 'mb-[2px] ml-[1px]'
+                    : item.title === 'Transaction History' ? 'mb-[2px] -ml-[4px]'
+                      : item.title === 'Account Statement' ? 'mb-[2px] ml-[0px]'
+                        : item.title === 'Verification' ? 'h-[21px] mb-[2px] ml-[2px]'
+                          : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
+                  }
+                `} />
+              </div>
+              <span className={`${item.title === 'Transaction History' && 'text-[#1E2326] font-medium -ml-[4px]'}`}>{item.title}</span>
+            </div>
+          ))}
         </div>
       </div>
-
     </main>
   )
 }
