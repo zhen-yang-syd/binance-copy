@@ -8,3 +8,7 @@ export const nav = [
     { title: 'Institutional', icon: BsFillCaretDownFill },
     { title: 'More', icon: BsFillCaretDownFill },
 ];
+export const rightNav = [
+    { title: 'Wallet', icon: BsFillCaretDownFill },
+    { title: 'Orders', icon: BsFillCaretDownFill },
+];
