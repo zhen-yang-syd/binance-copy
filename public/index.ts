@@ -22,4 +22,6 @@ import Transaction from './transaction.png'
 import Account from './account.png'
 import Verification from './verification.png'
 
-export { Logo, Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night, OverView, Fiat, Margin, Futures, Options, Trading, Earn, Funding, Binance, Tokocrypto, Transaction, Account, Verification };
+import Past30Days from './past30days.png'
+
+export { Logo, Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night, OverView, Fiat, Margin, Futures, Options, Trading, Earn, Funding, Binance, Tokocrypto, Transaction, Account, Verification, Past30Days };
