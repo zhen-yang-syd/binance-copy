@@ -1,5 +1,6 @@
 import { CgMenuGridR } from 'react-icons/cg'
 import { BsFillCaretDownFill } from 'react-icons/bs'
+import { nav } from '@/utils/constants'
 export default function Home() {
   return (
     <main className="w-full bg-[#ffffff]">
@@ -10,8 +11,17 @@ export default function Home() {
             </path>
           </svg>
         </a>
-        <CgMenuGridR className="w-[24px] h-[24px] ml-[16px] mb-[6px]"/>
-        <BsFillCaretDownFill className="w-[10px] h-[10px] text-disabled ml-[4px]"/>
+        <CgMenuGridR className="w-[24px] h-[24px] ml-[16px] mb-[6px]" />
+        <BsFillCaretDownFill className="w-[10px] h-[10px] text-disabled ml-[4px]" />
+        <nav className="flex flex-row ml-[20px] mb-[1px]">
+          {nav.map((item, index) => (
+            <a className="flex flex-row items-center mr-[20px]" key={index}>
+              <span className={`text-[#1E2329] text-[14px] font-[400] mt-[2px]`}>{item.title}</span>
+              {item.title === 'Buy Crypto' ? <div className="css-xixtsp"><div data-bn-type="text" className="css-17hpqak">EUR</div></div> : ''}
+              <item.icon className="w-[10px] h-[10px] text-disabled ml-[4px]" />
+            </a>
+          ))}
+        </nav >
       </header>
     </main>
   )

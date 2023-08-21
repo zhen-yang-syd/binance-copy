@@ -1,12 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 * {
   padding: 0;
   margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
+
 $text-disabled: #707a8a;
+
 .text-disabled {
   color: $text-disabled;
+}
+
+.css-xixtsp {
+  box-sizing: border-box;
+  margin: 0px px;
+  min-width: 0px;
+  width: 40px;
+}
+
+.css-17hpqak {
+  box-sizing: border-box;
+  margin: 0px 0px 0px 8px;
+  min-width: 0px;
+  display: flex;
+  position: relative;
+  border-radius: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: rgb(252, 213, 53);
+  color: rgb(30, 35, 41);
+}
+
+.css-17hpqak::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  left: -3px;
+  top: 2px;
+  border-width: 6px 6px 6px 0px;
+  border-left-style: initial;
+  border-left-color: initial;
+  border-top-style: solid;
+  border-top-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  border-right-style: solid;
+  border-right-color: rgb(252, 213, 53);
 }
