@@ -1,7 +1,7 @@
 'use client'
 import { CgMenuGridR } from 'react-icons/cg'
 import { BsFillCaretDownFill } from 'react-icons/bs'
-import { nav, rightNav, leftNav1, leftNav2, leftNav3, filter } from '@/utils/constants'
+import { nav, rightNav, leftNav1, leftNav2, leftNav3, filter, type } from '@/utils/constants'
 import {
   Search,
   DownLoad,
@@ -36,8 +36,11 @@ export default function Home() {
   const [typeClick, setTypeClick] = useState(false)
   const [timeClick, setTimeClick] = useState(false)
   const handleTypeClick = ()=>{
-    setTypeClick(prev => !prev)
+    console.log('yes')
+    // setTypeClick to different value
+    setTypeClick(!typeClick)
   }
+  const [selectType, setSelectType] = useState()
   return (
     <main className="w-full bg-[#ffffff] relative">
       <header className="w-full px-[16px] h-[64px] flex items-center justify-between">
@@ -160,9 +163,22 @@ export default function Home() {
               <div className='flex flex-row'>
                 {/* Type */}
                 <div className='flex flex-col mb-[16px] mr-[16px]'>
-                  <div className='w-[150px] h-[40px] mt-[32px] border-[1px] hover:border-[#f0b90b] cursor-pointer border-[#eaecef] rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative' onClick={()=>setTypeClick(true)}>Deposit
+                  <div className={`w-[150px] h-[40px] mt-[32px] border-[1px] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative ${typeClick ? 'border-[#f0b90b]' : 'border-[#eaecef]'}`} onClick={handleTypeClick}>Deposit
                     <span className='text-[#474D57] text-sm leading-[32px] absolute -top-[32px] left-0'>Type</span>
-                    <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${typeClick ? 'rotate(180)': ''}`} />
+                    <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${typeClick ? 'rotate-180': ''}`} />
+                    {/* {typeClick && <div className='type-menu'></div>} */}
+                    <div className='type-menu'>
+                      <div className='w-full h-full overflow-hidden relative type-menu-list-container'>
+                        {/* scroll bar */}
+                        <div className='h-[205px] w-[6px] rounded-full bg-[#B7BDC6] absolute top-[2px] right-[2px]'></div>
+                        {/* list */}
+                        {type.map((item, index) => (
+                          <div className={`type-menu-list-item ${item.value === selectType ? 'bg-[#f5f5f5] text-[#c99400]' : 'text-[#707A8A]'}`} key={index} onClick={()=>setSelectType(item.value)}>
+                            {item.title}
+                            </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 {/* Time */}

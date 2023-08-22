@@ -143,3 +143,12 @@ export const community = [
     {title:'Trademarket',icon:Trademarket},
     {title:'Youtube',icon:Youtube},
 ]
+
+export const type = [
+    {title: 'Deposit', value: 'deposit'},
+    {title: 'Withdraw', value: 'withdraw'},
+    {title: 'Auto deduction', value: 'auto-deduction'},
+    {title: 'Auto funding', value: 'auto-funding'},
+    {title: 'Arrears repayment', value: 'arrears-repayment'},
+    {title: 'Auto convert', value: 'auto-convert'},
+]

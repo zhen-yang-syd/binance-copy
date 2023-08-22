@@ -62,7 +62,7 @@ $text-disabled: #707a8a;
 .css-1g353mx {
   box-sizing: border-box;
   margin: 0px;
-  margin-top:4px;
+  margin-top: 4px;
   min-width: 0px;
   width: 16px;
   height: 16px;
@@ -77,4 +77,35 @@ $text-disabled: #707a8a;
   fill: rgb(132, 142, 156);
   width: 1em;
   height: 1em;
+}
+
+.type-menu {
+  position: absolute;
+  z-index: 1100;
+  transition: height 0.2s ease 0s;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(24, 26, 32, 0.1) 0px 0px 1px, rgba(71, 77, 87, 0.08) 0px 7px 14px, rgba(24, 26, 32, 0.08) 0px 3px 6px;
+  border-radius: 4px;
+  width: 191.66px;
+  height: 228px;
+  top: 39px;
+  left: -1px;
+}
+.type-menu-list-container {
+  padding: 4px 0px;
+    overflow-y: scroll;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.type-menu-list-item {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  color: rgb(201, 148, 0);
+  opacity: 1;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 1;
 }
