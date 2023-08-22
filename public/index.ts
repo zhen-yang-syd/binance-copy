@@ -52,6 +52,8 @@ import TwentyThree from './23.png'
 import Withdraw from './69.png'
 import D1 from './d1.png'
 import T1 from './t1.png'
+import Check from './check.png'
+import Checkhover from './checkhover.png'
 
 
 export {
@@ -100,5 +102,7 @@ export {
     TwentyThree,
     Withdraw,
     D1,
-    T1
+    T1,
+    Check,
+    Checkhover
 };

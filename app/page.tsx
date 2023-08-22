@@ -26,7 +26,8 @@ import {
   TwentyThree,
   Withdraw,
   D1,
-  T1
+  T1,
+  Check,
 } from '@/public'
 import ScrollBar from '@/components/ScrollBar'
 import { useState } from 'react'
@@ -35,12 +36,16 @@ export default function Home() {
   const [empty, isEmpty] = useState(true)
   const [typeClick, setTypeClick] = useState(false)
   const [timeClick, setTimeClick] = useState(false)
-  const handleTypeClick = ()=>{
+  const handleTypeClick = () => {
     console.log('yes')
     // setTypeClick to different value
     setTypeClick(!typeClick)
   }
-  const [selectType, setSelectType] = useState()
+  const [selectType, setSelectType] = useState<string>('deposit')
+  const handleSelectType = (type: string) => {
+    setSelectType(type)
+    setTypeClick(false)
+  }
   return (
     <main className="w-full bg-[#ffffff] relative">
       <header className="w-full px-[16px] h-[64px] flex items-center justify-between">
@@ -163,22 +168,23 @@ export default function Home() {
               <div className='flex flex-row'>
                 {/* Type */}
                 <div className='flex flex-col mb-[16px] mr-[16px]'>
-                  <div className={`w-[150px] h-[40px] mt-[32px] border-[1px] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative ${typeClick ? 'border-[#f0b90b]' : 'border-[#eaecef]'}`} onClick={handleTypeClick}>Deposit
+                  <div className={`w-[150px] h-[40px] mt-[32px] border-[1px] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative ${typeClick ? 'border-[#f0b90b]' : 'border-[#eaecef]'}`} onClick={handleTypeClick}>
+                    {selectType === 'deposit' ? 'Deposit' : 'Withdraw'}
                     <span className='text-[#474D57] text-sm leading-[32px] absolute -top-[32px] left-0'>Type</span>
-                    <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${typeClick ? 'rotate-180': ''}`} />
-                    {/* {typeClick && <div className='type-menu'></div>} */}
-                    <div className='type-menu'>
-                      <div className='w-full h-full overflow-hidden relative type-menu-list-container'>
+                    <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${typeClick ? 'rotate-180' : ''}`} />
+                    {typeClick && <div className='type-menu'>
+                      <div className='w-full h-full overflow-hidden relative type-menu-list-container pt-[4px]'>
                         {/* scroll bar */}
                         <div className='h-[205px] w-[6px] rounded-full bg-[#B7BDC6] absolute top-[2px] right-[2px]'></div>
                         {/* list */}
                         {type.map((item, index) => (
-                          <div className={`type-menu-list-item ${item.value === selectType ? 'bg-[#f5f5f5] text-[#c99400]' : 'text-[#707A8A]'}`} key={index} onClick={()=>setSelectType(item.value)}>
+                          <div className={`flex flex-row justify-between items-center py-[10px] px-[16px] leading-[20px] text-sm hover:bg-[#f5f5f5] mr-[10px] ${item.value === selectType ? 'text-[#c99400]' : 'text-[#1E2329]'}`} key={index} onClick={() => handleSelectType(item.value)}>
                             {item.title}
-                            </div>
+                            {item.value === selectType && <img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' />}
+                          </div>
                         ))}
                       </div>
-                    </div>
+                    </div>}
                   </div>
                 </div>
                 {/* Time */}
