@@ -2,9 +2,10 @@
 import { CgMenuGridR } from 'react-icons/cg'
 import { BsFillCaretDownFill } from 'react-icons/bs'
 import { nav, rightNav, leftNav1, leftNav2, leftNav3, filter } from '@/utils/constants'
-import { Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night, Past30Days } from '@/public'
+import { Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night, Past30Days, Chatsupport, Merchant, MerchantPro, MerchantPro1, Binance2023 } from '@/public'
 import ScrollBar from '@/components/ScrollBar'
 import { useState } from 'react'
+import { aboutUs, products, service, support, learn, community } from '@/utils/constants'
 export default function Home() {
   const [empty, isEmpty] = useState(true)
   return (
@@ -107,7 +108,7 @@ export default function Home() {
           ))}
         </div>
         {/* <div className='w-[1570px] h-[658px] p-[32px]'> */}
-        <div className='w-[1669px] h-[658px] p-[32px]'>
+        <div className='w-[1670px] h-[658px] p-[32px]'>
           <div className='w-full h-full flex flex-col'>
             <div className='mt-[8px] mb-[24px] flex flex-row justify-between'>
               <h1 className='text-[#1E2329] text-[32px] leading-[40px] font-[600]'>Transaction History</h1>
@@ -158,7 +159,7 @@ export default function Home() {
                 </div>
                 {/* TxID */}
                 <div className='flex flex-col mb-[16px] mr-[16px]'>
-                  <div className='w-[212px] h-[40px] mt-[32px] border-[1px] border-[#eaecef] rounded-[4px] text-[#adb9c9] text-sm flex items-center pl-[12px] relative'>Enter TxID
+                  <div className='w-[214px] h-[40px] mt-[32px] border-[1px] border-[#eaecef] rounded-[4px] text-[#adb9c9] text-sm flex items-center pl-[12px] relative'>Enter TxID
                     <span className='text-[#474D57] text-sm leading-[32px] absolute -top-[32px] left-0'>TxID</span>
                   </div>
                 </div>
@@ -175,27 +176,27 @@ export default function Home() {
             <div className='w-full h-[310px]'>
               <div className='w-full h-[40px] bg-[#f5f5f5] rounded-t-[8px] flex flex-row items-center text-[#707A8A] text-[12px]'>
                 {/* time */}
-                <div className='px-[16px] w-[236px]'>Time</div>
+                <div className='px-[16px] w-[236.13px]'>Time</div>
                 {/* type */}
-                <div className='px-[16px] w-[127px]'>Type</div>
+                <div className='px-[16px] w-[127.27px]'>Type</div>
                 {/* deposit wallet */}
-                <div className='px-[16px] w-[168px]'>Deposit wallet</div>
+                <div className='px-[16px] w-[168.08px]'>Deposit wallet</div>
                 <div className='w-[32px]'></div>
                 {/* asset */}
-                <div className='px-[16px] w-[127px]'>Asset</div>
+                <div className='px-[16px] w-[127.27px]'>Asset</div>
                 {/* amount */}
-                <div className='px-[16px] w-[127px]'>Amount</div>
+                <div className='px-[16px] w-[127.27px]'>Amount</div>
                 {/* destination */}
-                <div className='px-[16px] w-[236px]'>Destination</div>
+                <div className='px-[16px] w-[236.13px]'>Destination</div>
                 {/* txid */}
-                <div className='px-[16px] w-[270px]'>TxID</div>
+                <div className='px-[16px] w-[270.14px]'>TxID</div>
                 {/* status */}
-                <div className='px-[16px] w-[222px]'>Status</div>
+                <div className='px-[16px] w-[222.52px]'>Status</div>
               </div>
               {/* empty */}
               {empty ? <div className='w-full h-[270px] flex flex-col items-center justify-center py-[24px]'>
-                <div className='w-[96px] h-[96px] mb-[6px] mr-[2px]'>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" className="mirror css-1tx71v4"><path fill-rule="evenodd" clip-rule="evenodd" d="M64 8H26v80h58V28H64V8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4zm-8 12l4 4-4 4-4-4 4-4zM50 18l-3 3 3 3 3-3-3-3z" fill="url(#not-found-data_svg__paint0_linear_22059_32288)"></path><path opacity="0.3" d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z" fill="#929AA5"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z" fill="url(#not-found-data_svg__paint1_linear_22059_32288)"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z" fill="url(#not-found-data_svg__paint2_linear_22059_32288)"></path><defs><linearGradient id="not-found-data_svg__paint0_linear_22059_32288" x1="55" y1="8" x2="55" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5" stop-opacity="0.1"></stop><stop offset="1" stop-color="#929AA5" stop-opacity="0.25"></stop></linearGradient><linearGradient id="not-found-data_svg__paint1_linear_22059_32288" x1="4.172" y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient><linearGradient id="not-found-data_svg__paint2_linear_22059_32288" x1="15" y1="48" x2="55" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient></defs></svg>
+                <div className='w-[96px] h-[96px] mb-[6px] mr-[1px]'>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" className="mirror css-1tx71v4"><path fill-rule="evenodd" clip-rule="evenodd" d="M64 8H26v80h58V28H64V8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4zm-8 12l4 4-4 4-4-4 4-4zM50 18l-3 3 3 3 3-3-3-3z" fill="url(#not-found-data_svg__paint0_linear_22059_32288)"></path><path opacity="0.3" d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z" fill="#929AA5"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z" fill="url(#not-found-data_svg__paint1_linear_22059_32288)"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z" fill="url(#not-found-data_svg__paint2_linear_22059_32288)"></path><defs><linearGradient id="not-found-data_svg__paint0_linear_22059_32288" x1="55" y1="8" x2="55" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5" stopOpacity="0.1"></stop><stop offset="1" stop-color="#929AA5" stopOpacity="0.25"></stop></linearGradient><linearGradient id="not-found-data_svg__paint1_linear_22059_32288" x1="4.172" y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient><linearGradient id="not-found-data_svg__paint2_linear_22059_32288" x1="15" y1="48" x2="55" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient></defs></svg>
                 </div>
                 <span className='text-[#707A8A] text-base'>No records found.</span>
               </div> : ''}
@@ -207,17 +208,117 @@ export default function Home() {
       </div>
       {/* footer */}
       <div className='w-full flex justify-center pt-[48px]'>
-        <div className='w-[1248px] h-[691px] flex flex-col'>
-          <div className='w-full h-[606px] pb-[16px]'>
+        <div className='w-[1248px] h-[691px] flex flex-col px-[19px]'>
+          <div className='w-full h-[606px] pb-[16px] flex flex-row'>
             {/* about us */}
+            <div className='w-[189.44px] h-[590px] pr-[17px] flex flex-col'>
+              <div className='py-[16px] text-[#1e2329] text-[20px] font-[500]'>
+                About Us
+              </div>
+              <div className='flex flex-col'>
+                {aboutUs.map(
+                  (item, index) => (
+                    <div className='mb-[12px] text-[#707A8A] text-sm leading-[1.5]' key={index}>{item}</div>
+                  )
+                )}
+              </div>
+            </div>
             {/* products */}
+            <div className='w-[189.44px] h-[590px] pr-[16px] flex flex-col'>
+              <div className='py-[16px] text-[#1e2329] text-[20px] font-[500]'>
+                Products
+              </div>
+              <div className='flex flex-col'>
+                {products.map(
+                  (item, index) => (
+                    <div className='mb-[12px] text-[#707A8A] text-sm leading-[1.5]' key={index}>{item}</div>
+                  )
+                )}
+              </div>
+            </div>
             {/* service */}
+            <div className='w-[189.44px] h-[590px] pr-[16px] flex flex-col'>
+              <div className='py-[16px] text-[#1e2329] text-[20px] font-[500]'>
+                Service
+              </div>
+              <div className='flex flex-col'>
+                {service.map(
+                  (item, index) => (
+                    <>
+                      {item === 'P2P Merchant Application' ? <img src={Merchant.src} alt="" className='w-[162px] ml-[1px]' /> :
+                        item === 'P2Pro Merchant Application' ?
+                          <div className='flex flex-col mt-[14px] mb-[14px]'>
+                            <img src={MerchantPro.src} alt="" className='w-[102px] mb-[1px] ml-[1px]' />
+                            <img src={MerchantPro1.src} alt="" className='w-[102px] ml-[1px]' />
+                          </div>
+                          :
+                          <div className='mb-[12px] text-[#707A8A] text-sm leading-[1.5]' key={index}>{item}</div>}
+                    </>
+                  )
+                )}
+              </div>
+            </div>
             {/* support */}
+            <div className='w-[189.44px] h-[590px] pr-[16px] flex flex-col'>
+              <div className='py-[16px] text-[#1e2329] text-[20px] font-[500]'>
+                Support
+              </div>
+              <div className='flex flex-col'>
+                {support.map(
+                  (item, index) => (
+                    <>
+                      {item === '24/7 Chat Support' ?
+                        <img src={Chatsupport.src} alt="" className='h-auto w-[114px] mb-[13px] ml-[1px]' />
+                        : <div className='mb-[12px] text-[#707A8A] text-sm leading-[1.5]' key={index}>{item}</div>}
+                    </>
+                  )
+                )}
+              </div>
+            </div>
             {/* learn */}
+            <div className='w-[189.44px] h-[590px] pr-[16px] flex flex-col'>
+              <div className='py-[16px] text-[#1e2329] text-[20px] font-[500]'>
+                Learn
+              </div>
+              <div className='flex flex-col'>
+                {learn.map(
+                  (item, index) => (
+                    <div className='mb-[12px] text-[#707A8A] text-sm leading-[1.5]' key={index}>{item}</div>
+                  )
+                )}
+              </div>
+            </div>
             {/* community */}
+            <div className='w-[236.8px] h-[590px] pl-[16px] flex flex-col'>
+              <div className='py-[16px] text-[#1e2329] text-[20px] font-[500] mb-[1px]'>
+                Community
+              </div>
+              <div className='w-[220px] h-[139px] flex flex-row flex-wrap gap-x-[34px] ml-[1px]'>
+                {community.map(
+                  (item, index) => (
+                    <img src={item.icon.src} alt="" key={index} className={`
+                    ${
+                      item.title === 'Discord' ? 'w-[20px] h-[20px] mb-[1px]':
+                      item.title === 'Telegram' ? 'w-[20px] h-[20px] mb-[1px]':
+                      item.title === 'Tiktok' ? 'w-[16px] h-[18px] ml-[2px] mt-[1px] mb-[1px]':
+                      item.title === 'Facebook' ? 'w-[20px] h-[19.7px] ml-[2px]':
+                      item.title === 'Twitter' ? 'w-[18.33px] h-[17.88px] mt-[1px] ml-[1px]':
+                      item.title === 'Reddit' ? 'w-[20px] h-[20px] mb-[2px]':
+                      item.title === 'Ins' ? 'w-[18px] h-[18px] ml-[1px] mt-[1px]':
+                      item.title === 'Coinmarket' ? 'w-[20px] h-[20px] ml-[1px]':
+                      item.title === 'Trademarket' ? 'w-[20px] h-[20px] mb-[2px]':
+                      item.title === 'Youtube' ? 'w-[22px] h-[15.18px] mt-[3px] -ml-[1px]':
+                      null
+                    }
+                    `}/>
+                  )
+                )}
+              </div>
+            </div>
           </div>
-          <div className='border-t-[1px] border-[#eaecef]'>
-            <div className='text-[#707A8A] text-sm py-[32px] text-center'>Binance © 2023</div>
+          <div className='border-t-[1px] border-[#eaecef] flex flex-col justify-center items-center'>
+            {/* <div className='text-[#707A8A] text-sm py-[32px] text-center'>Binance © 2023</div> */}
+            <img src={Binance2023.src} alt="" className='my-[32px] w-[97px] -ml-[10px]' />
           </div>
         </div>
       </div>

@@ -1,5 +1,17 @@
 import { BsFillCaretDownFill } from 'react-icons/bs'
 import { OverView, Fiat, Margin, Futures, Options, Trading, Earn, Funding, Binance, Tokocrypto, Transaction, Account, Verification } from '../public/index'
+import {
+    Discord,
+    Telegram,
+    Tiktok,
+    Facebook,
+    Twitter,
+    Reddit,
+    Ins,
+    Coinmarket,
+    Trademarket,
+    Youtube
+} from '@/public'
 export const nav = [
     { title: 'Buy Crypto', icon: BsFillCaretDownFill },
     { title: 'Markets', icon: BsFillCaretDownFill },
@@ -42,4 +54,92 @@ export const filter = [
     'BNB Convert',
     'Loan',
     'Funding Wallet',
+]
+export const aboutUs = [
+    'About',
+    "Press",
+    'Careers',
+    'Business Contacts',
+    'Community',
+    'Blog',
+    'Building Trust',
+    'Legal',
+    'Terms',
+    'Privacy',
+    'Risk Warning',
+    'Announcements',
+    'News',
+    'Notices',
+    'Sitemap',
+    'Cookie Preferences'
+]
+export const products = [
+    'Exchange',
+    'Academy',
+    'Leveraged Tokens',
+    'Live',
+    'Charity',
+    'Labs',
+    'Launchpad',
+    'Research',
+    'NFT',
+    'Pay',
+    'Gift Card',
+    'BABT',
+    'Tax'
+]
+export const service = [
+    'Downloads',
+    'Desktop Application',
+    'Buy Crypto',
+    'Institutional & VIP Services',
+    'OTC Trading',
+    'Referral',
+    'Affiliate',
+    'BNB',
+    'Listing Application',
+    'P2P Merchant Application',
+    'P2Pro Merchant Application',
+    'Historical Market Data',
+    'Proof of Reserves'
+]
+export const support = [
+    'Request a Feature',
+    'Support Center',
+    '24/7 Chat Support',
+    'APIs',
+    'Fees',
+    'Trading Rules',
+    'Binance Verify',
+    'Law Enforcement Requests',
+    'Binance Legal (Court Orders)',
+    'Binance Airdrop Portal'
+]
+export const learn = [
+    'Learn & Earn',
+    'Browse Crypto Prices',
+    'Bitcoin Price',
+    'Ethereum Price',
+    'Browse Crypto Price Predictions',
+    'Bitcoin Price Prediction',
+    'Ethereum Price Prediction',
+    'Buy BNB',
+    'Buy BUSD',
+    'Buy Bitcoin',
+    'Buy Ethereum',
+    'Buy Dogecoin',
+    'Buy Ripple',
+    'Buy Tradable Altcoins'
+]
+export const community = [
+    {title:'Discord',icon:Discord},
+    {title:'Telegram',icon:Telegram},
+    {title:'Tiktok',icon:Tiktok},
+    {title:'Facebook',icon:Facebook},
+    {title:'Twitter',icon:Twitter},
+    {title:'Reddit',icon:Reddit},
+    {title:'Ins',icon:Ins},
+    {title:'Coinmarket',icon:Coinmarket},
+    {title:'Trademarket',icon:Trademarket},
+    {title:'Youtube',icon:Youtube},
 ]

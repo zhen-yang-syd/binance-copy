@@ -24,4 +24,59 @@ import Verification from './verification.png'
 
 import Past30Days from './past30days.png'
 
-export { Logo, Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night, OverView, Fiat, Margin, Futures, Options, Trading, Earn, Funding, Binance, Tokocrypto, Transaction, Account, Verification, Past30Days };
+import Discord from './discord.png'
+import Telegram from './telegram.png'
+import Tiktok from './tiktok.png'
+import Facebook from './facebook.png'
+import Twitter from './twitter.png'
+import Reddit from './reddit.png'
+import Ins from './ins.png'
+import Coinmarket from './coinmarket.png'
+import Trademarket from './trademarket.png'
+import Youtube from './youtube.png'
+
+import Chatsupport from './chatsupport.png'
+import Merchant from './merchant.png'
+import MerchantPro from './merchantpro.png'
+import MerchantPro1 from './merchantpro1.png'
+
+import Binance2023 from './binance2023.png'
+
+export {
+    Logo,
+    Search,
+    DownLoad,
+    Avatar,
+    Alert,
+    Down,
+    Language,
+    Divider,
+    Night,
+    OverView,
+    Fiat,
+    Margin,
+    Futures,
+    Options,
+    Trading,
+    Earn,
+    Funding,
+    Binance,
+    Tokocrypto,
+    Transaction,
+    Account,
+    Verification,
+    Past30Days,
+    Discord,
+    Telegram,
+    Tiktok,
+    Facebook,
+    Twitter,
+    Reddit,
+    Ins,
+    Coinmarket,
+    Trademarket,
+    Youtube,
+    Chatsupport,
+    Merchant,
+    MerchantPro, Binance2023, MerchantPro1
+};
