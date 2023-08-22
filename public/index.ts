@@ -54,6 +54,9 @@ import D1 from './d1.png'
 import T1 from './t1.png'
 import Check from './check.png'
 import Checkhover from './checkhover.png'
+import Past7 from './past7.png'
+import Past30 from './past30.png'
+import Past90 from './past90.png'
 
 
 export {
@@ -104,5 +107,8 @@ export {
     D1,
     T1,
     Check,
-    Checkhover
+    Checkhover,
+    Past7,
+    Past30,
+    Past90
 };

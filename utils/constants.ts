@@ -152,3 +152,9 @@ export const type = [
     {title: 'Arrears repayment', value: 'arrears-repayment'},
     {title: 'Auto convert', value: 'auto-convert'},
 ]
+export const time = [
+    {title: 'Past 7 days', value: 'past7days'},
+    {title: 'Past 30 days', value: 'past30days'},
+    {title: 'Past 90 days', value: 'past90days'},
+    {title: 'Customized', value: 'customized'},
+]

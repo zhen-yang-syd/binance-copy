@@ -91,6 +91,18 @@ $text-disabled: #707a8a;
   top: 39px;
   left: -1px;
 }
+.time-menu {
+  position: absolute;
+  z-index: 1100;
+  transition: height 0.2s ease 0s;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(24, 26, 32, 0.1) 0px 0px 1px, rgba(71, 77, 87, 0.08) 0px 7px 14px, rgba(24, 26, 32, 0.08) 0px 3px 6px;
+  border-radius: 4px;
+  width: 170px;
+  height: 168px;
+  top: 39px;
+  left: -1px;
+}
 .type-menu-list-container {
   padding: 4px 0px;
     overflow-y: scroll;
