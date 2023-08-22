@@ -2,7 +2,32 @@
 import { CgMenuGridR } from 'react-icons/cg'
 import { BsFillCaretDownFill } from 'react-icons/bs'
 import { nav, rightNav, leftNav1, leftNav2, leftNav3, filter } from '@/utils/constants'
-import { Search, DownLoad, Avatar, Alert, Down, Language, Divider, Night, Past30Days, Chatsupport, Merchant, MerchantPro, MerchantPro1, Binance2023 } from '@/public'
+import {
+  Search,
+  DownLoad,
+  Avatar,
+  Alert,
+  Down,
+  Language,
+  Divider,
+  Night,
+  Past30Days,
+  Chatsupport,
+  Merchant,
+  MerchantPro,
+  MerchantPro1,
+  Binance2023,
+  Date,
+  Arrow,
+  Four,
+  Six,
+  Nine,
+  Eleven,
+  TwentyThree,
+  Withdraw,
+  D1,
+  T1
+} from '@/public'
 import ScrollBar from '@/components/ScrollBar'
 import { useState } from 'react'
 import { aboutUs, products, service, support, learn, community } from '@/utils/constants'
@@ -194,12 +219,41 @@ export default function Home() {
                 <div className='px-[16px] w-[222.52px]'>Status</div>
               </div>
               {/* empty */}
-              {empty ? <div className='w-full h-[270px] flex flex-col items-center justify-center py-[24px]'>
+              {!empty ? <div className='w-full h-[270px] flex flex-col items-center justify-center py-[24px]'>
                 <div className='w-[96px] h-[96px] mb-[6px] mr-[1px]'>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" className="mirror css-1tx71v4"><path fill-rule="evenodd" clip-rule="evenodd" d="M64 8H26v80h58V28H64V8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4zm-8 12l4 4-4 4-4-4 4-4zM50 18l-3 3 3 3 3-3-3-3z" fill="url(#not-found-data_svg__paint0_linear_22059_32288)"></path><path opacity="0.3" d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z" fill="#929AA5"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z" fill="url(#not-found-data_svg__paint1_linear_22059_32288)"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z" fill="url(#not-found-data_svg__paint2_linear_22059_32288)"></path><defs><linearGradient id="not-found-data_svg__paint0_linear_22059_32288" x1="55" y1="8" x2="55" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5" stopOpacity="0.1"></stop><stop offset="1" stop-color="#929AA5" stopOpacity="0.25"></stop></linearGradient><linearGradient id="not-found-data_svg__paint1_linear_22059_32288" x1="4.172" y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient><linearGradient id="not-found-data_svg__paint2_linear_22059_32288" x1="15" y1="48" x2="55" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient></defs></svg>
                 </div>
                 <span className='text-[#707A8A] text-base'>No records found.</span>
-              </div> : ''}
+              </div> :
+                <div className='w-full flex flex-row items-center text-[#474D57] text-[12px] border-b-[1px] border-[#eaecef]'>
+                  {/* time */}
+                  <div className='px-[16px] py-[22px] text-sm w-[236.13px] number'>
+                    <img src={Date.src} alt="" />
+                  </div>
+                  {/* type */}
+                  <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>Deposit</div>
+                  {/* deposit wallet */}
+                  <div className='px-[16px] py-[22px] text-sm w-[168.08px]'>Spot Wallet</div>
+                  <div className='w-[32px]'></div>
+                  {/* asset */}
+                  <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>USDT</div>
+                  {/* amount */}
+                  <div className='px-[16px] py-[22px] text-sm w-[127.27px] number'>
+                    <img src={Withdraw.src} alt="" className='mb-[1px]'/>
+                  </div>
+                  {/* destination */}
+                  <div className='px-[16px] py-[22px] text-sm w-[236.13px]'>
+                    <img src={D1.src} alt="" className='mt-[1px] -ml-[1px]'/>
+                  </div>
+                  {/* txid */}
+                  <div className='px-[16px] py-[22px] text-sm w-[270.14px]'>
+                    <img src={T1.src} alt="" />
+                  </div>
+                  {/* status */}
+                  <div className='px-[16px] py-[22px] text-sm w-[222.52px]'>Completed</div>
+                  {/* arrow */}
+                  <img src={Arrow.src} alt="" className='ml-[14px]'/>
+                </div>}
               {/* loading */}
               {/* data */}
             </div>
@@ -297,20 +351,19 @@ export default function Home() {
                 {community.map(
                   (item, index) => (
                     <img src={item.icon.src} alt="" key={index} className={`
-                    ${
-                      item.title === 'Discord' ? 'w-[20px] h-[20px] mb-[1px]':
-                      item.title === 'Telegram' ? 'w-[20px] h-[20px] mb-[1px]':
-                      item.title === 'Tiktok' ? 'w-[16px] h-[18px] ml-[2px] mt-[1px] mb-[1px]':
-                      item.title === 'Facebook' ? 'w-[20px] h-[19.7px] ml-[2px]':
-                      item.title === 'Twitter' ? 'w-[18.33px] h-[17.88px] mt-[1px] ml-[1px]':
-                      item.title === 'Reddit' ? 'w-[20px] h-[20px] mb-[2px]':
-                      item.title === 'Ins' ? 'w-[18px] h-[18px] ml-[1px] mt-[1px]':
-                      item.title === 'Coinmarket' ? 'w-[20px] h-[20px] ml-[1px]':
-                      item.title === 'Trademarket' ? 'w-[20px] h-[20px] mb-[2px]':
-                      item.title === 'Youtube' ? 'w-[22px] h-[15.18px] mt-[3px] -ml-[1px]':
-                      null
-                    }
-                    `}/>
+                    ${item.title === 'Discord' ? 'w-[20px] h-[20px] mb-[1px]' :
+                        item.title === 'Telegram' ? 'w-[20px] h-[20px] mb-[1px]' :
+                          item.title === 'Tiktok' ? 'w-[16px] h-[18px] ml-[2px] mt-[1px] mb-[1px]' :
+                            item.title === 'Facebook' ? 'w-[20px] h-[19.7px] ml-[2px]' :
+                              item.title === 'Twitter' ? 'w-[18.33px] h-[17.88px] mt-[1px] ml-[1px]' :
+                                item.title === 'Reddit' ? 'w-[20px] h-[20px] mb-[2px]' :
+                                  item.title === 'Ins' ? 'w-[18px] h-[18px] ml-[1px] mt-[1px]' :
+                                    item.title === 'Coinmarket' ? 'w-[20px] h-[20px] ml-[1px]' :
+                                      item.title === 'Trademarket' ? 'w-[20px] h-[20px] mb-[2px]' :
+                                        item.title === 'Youtube' ? 'w-[22px] h-[15.18px] mt-[3px] -ml-[1px]' :
+                                          null
+                      }
+                    `} />
                   )
                 )}
               </div>

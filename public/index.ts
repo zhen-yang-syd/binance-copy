@@ -42,6 +42,18 @@ import MerchantPro1 from './merchantpro1.png'
 
 import Binance2023 from './binance2023.png'
 
+import Date from './20230727.png'
+import Arrow from './arrow.png'
+import Four from './4.png'
+import Six from './6.png'
+import Nine from './9.png'
+import Eleven from './11.png'
+import TwentyThree from './23.png'
+import Withdraw from './69.png'
+import D1 from './d1.png'
+import T1 from './t1.png'
+
+
 export {
     Logo,
     Search,
@@ -78,5 +90,15 @@ export {
     Youtube,
     Chatsupport,
     Merchant,
-    MerchantPro, Binance2023, MerchantPro1
+    MerchantPro, Binance2023, MerchantPro1,
+    Date,
+    Arrow,
+    Four,
+    Six,
+    Nine,
+    Eleven,
+    TwentyThree,
+    Withdraw,
+    D1,
+    T1
 };
