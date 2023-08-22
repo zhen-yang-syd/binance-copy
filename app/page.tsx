@@ -35,6 +35,9 @@ export default function Home() {
   const [empty, isEmpty] = useState(true)
   const [typeClick, setTypeClick] = useState(false)
   const [timeClick, setTimeClick] = useState(false)
+  const handleTypeClick = ()=>{
+    setTypeClick(prev => !prev)
+  }
   return (
     <main className="w-full bg-[#ffffff] relative">
       <header className="w-full px-[16px] h-[64px] flex items-center justify-between">
@@ -67,7 +70,7 @@ export default function Home() {
             {rightNav.map((item, index) => (
               <a className="flex flex-row items-center mr-[20px]" key={index}>
                 <span className={`text-[#1E2329] text-[14px] font-[400] mt-[2px]`}>{item.title}</span>
-                {item.title === 'Buy Crypto' ? <div className="css-xixtsp"><div data-bn-type="text" className="css-17hpqak">EUR</div></div> : ''}
+                {item.title === 'Buy Crypto' ? <div className="css-xixtsp" key='crypto-key'><div data-bn-type="text" className="css-17hpqak">EUR</div></div> : ''}
                 <item.icon className="w-[10px] h-[10px] text-disabled ml-[4px]" />
               </a>
             ))}
@@ -140,7 +143,7 @@ export default function Home() {
             <div className='mt-[8px] mb-[24px] flex flex-row justify-between'>
               <h1 className='text-[#1E2329] text-[32px] leading-[40px] font-[600]'>Transaction History</h1>
               <div className='flex flex-row items-center'>
-                <div className="css-1g353mx mt-[5px]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="css-wg7atv"><path fill="currentColor" d="M4 4h5v2.5H4zM4 17.5h16V20H4z"></path><path fill="currentColor" d="M4 4h2.5v16H4zM17.5 15H20v5h-2.5z"></path><path fillRule="evenodd" clip-rule="evenodd" d="M18.768 7.018l-8.485 8.485-1.768-1.768L17 5.25l.884.884.884.884z" fill="currentColor"></path><path d="M12 4h8v8l-8-8z" fill="currentColor"></path></svg></div>
+                <div className="css-1g353mx mt-[5px]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="css-wg7atv"><path fill="currentColor" d="M4 4h5v2.5H4zM4 17.5h16V20H4z"></path><path fill="currentColor" d="M4 4h2.5v16H4zM17.5 15H20v5h-2.5z"></path><path fillRule="evenodd" clipRule="evenodd" d="M18.768 7.018l-8.485 8.485-1.768-1.768L17 5.25l.884.884.884.884z" fill="currentColor"></path><path d="M12 4h8v8l-8-8z" fill="currentColor"></path></svg></div>
                 <span className='text-[#707A8A] ml-[4px] text-sm'>Export Transaction Records</span>
               </div>
             </div>
@@ -156,12 +159,12 @@ export default function Home() {
             <div className='w-full flex flex-row justify-between h-[96px]'>
               <div className='flex flex-row'>
                 {/* Type */}
-                {/* <div className='flex flex-col mb-[16px] mr-[16px]' onClick={()=>console.log('yes')}>
-                  <div className='w-[150px] h-[40px] mt-[32px] border-[1px] hover:border-[#f0b90b] cursor-pointer border-[#eaecef] rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative'>Deposit
+                <div className='flex flex-col mb-[16px] mr-[16px]'>
+                  <div className='w-[150px] h-[40px] mt-[32px] border-[1px] hover:border-[#f0b90b] cursor-pointer border-[#eaecef] rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative' onClick={()=>setTypeClick(true)}>Deposit
                     <span className='text-[#474D57] text-sm leading-[32px] absolute -top-[32px] left-0'>Type</span>
                     <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${typeClick ? 'rotate(180)': ''}`} />
                   </div>
-                </div> */}
+                </div>
                 {/* Time */}
                 <div className='flex flex-col mb-[16px] mr-[16px]'>
                   <div className='w-[170px] h-[40px] mt-[32px] border-[1px] border-[#eaecef] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative'>
@@ -194,7 +197,7 @@ export default function Home() {
               <div className='flex flex-row items-center mt-[10px]'>
                 <a href="" className='text-[#C99400] text-sm mr-[8px] underline'>Deposit hasn't arrived? Click here</a>
                 <div className='flex flex-row items-center mt-[2px]'>
-                  <div className="css-1g353mx mt-[5px]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="css-wg7atv"><path fill="currentColor" d="M4 4h5v2.5H4zM4 17.5h16V20H4z"></path><path fill="currentColor" d="M4 4h2.5v16H4zM17.5 15H20v5h-2.5z"></path><path fillRule="evenodd" clip-rule="evenodd" d="M18.768 7.018l-8.485 8.485-1.768-1.768L17 5.25l.884.884.884.884z" fill="currentColor"></path><path d="M12 4h8v8l-8-8z" fill="currentColor"></path></svg></div>
+                  <div className="css-1g353mx mt-[5px]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="css-wg7atv"><path fill="currentColor" d="M4 4h5v2.5H4zM4 17.5h16V20H4z"></path><path fill="currentColor" d="M4 4h2.5v16H4zM17.5 15H20v5h-2.5z"></path><path fillRule="evenodd" clipRule="evenodd" d="M18.768 7.018l-8.485 8.485-1.768-1.768L17 5.25l.884.884.884.884z" fill="currentColor"></path><path d="M12 4h8v8l-8-8z" fill="currentColor"></path></svg></div>
                   <span className='text-[#707A8A] ml-[4px] text-sm'>Export Deposit History</span>
                 </div>
               </div>
@@ -223,7 +226,7 @@ export default function Home() {
               {/* empty */}
               {!empty ? <div className='w-full h-[270px] flex flex-col items-center justify-center py-[24px]'>
                 <div className='w-[96px] h-[96px] mb-[6px] mr-[1px]'>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" className="mirror css-1tx71v4"><path fillRule="evenodd" clip-rule="evenodd" d="M64 8H26v80h58V28H64V8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4zm-8 12l4 4-4 4-4-4 4-4zM50 18l-3 3 3 3 3-3-3-3z" fill="url(#not-found-data_svg__paint0_linear_22059_32288)"></path><path opacity="0.3" d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z" fill="#929AA5"></path><path fillRule="evenodd" clip-rule="evenodd" d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z" fill="url(#not-found-data_svg__paint1_linear_22059_32288)"></path><path fillRule="evenodd" clip-rule="evenodd" d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z" fill="url(#not-found-data_svg__paint2_linear_22059_32288)"></path><defs><linearGradient id="not-found-data_svg__paint0_linear_22059_32288" x1="55" y1="8" x2="55" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5" stopOpacity="0.1"></stop><stop offset="1" stop-color="#929AA5" stopOpacity="0.25"></stop></linearGradient><linearGradient id="not-found-data_svg__paint1_linear_22059_32288" x1="4.172" y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient><linearGradient id="not-found-data_svg__paint2_linear_22059_32288" x1="15" y1="48" x2="55" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient></defs></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" className="mirror css-1tx71v4"><path fillRule="evenodd" clipRule="evenodd" d="M64 8H26v80h58V28H64V8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4zm-8 12l4 4-4 4-4-4 4-4zM50 18l-3 3 3 3 3-3-3-3z" fill="url(#not-found-data_svg__paint0_linear_22059_32288)"></path><path opacity="0.3" d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z" fill="#929AA5"></path><path fillRule="evenodd" clipRule="evenodd" d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z" fill="url(#not-found-data_svg__paint1_linear_22059_32288)"></path><path fillRule="evenodd" clipRule="evenodd" d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z" fill="url(#not-found-data_svg__paint2_linear_22059_32288)"></path><defs><linearGradient id="not-found-data_svg__paint0_linear_22059_32288" x1="55" y1="8" x2="55" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5" stopOpacity="0.1"></stop><stop offset="1" stop-color="#929AA5" stopOpacity="0.25"></stop></linearGradient><linearGradient id="not-found-data_svg__paint1_linear_22059_32288" x1="4.172" y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient><linearGradient id="not-found-data_svg__paint2_linear_22059_32288" x1="15" y1="48" x2="55" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient></defs></svg>
                 </div>
                 <span className='text-[#707A8A] text-base'>No records found.</span>
               </div> :
@@ -241,11 +244,11 @@ export default function Home() {
                   <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>USDT</div>
                   {/* amount */}
                   <div className='px-[16px] py-[22px] text-sm w-[127.27px] number'>
-                    <img src={Withdraw.src} alt="" className='mb-[1px]'/>
+                    <img src={Withdraw.src} alt="" className='mb-[1px]' />
                   </div>
                   {/* destination */}
                   <div className='px-[16px] py-[22px] text-sm w-[236.13px]'>
-                    <img src={D1.src} alt="" className='mt-[1px] -ml-[1px]'/>
+                    <img src={D1.src} alt="" className='mt-[1px] -ml-[1px]' />
                   </div>
                   {/* txid */}
                   <div className='px-[16px] py-[22px] text-sm w-[270.14px]'>
@@ -254,7 +257,7 @@ export default function Home() {
                   {/* status */}
                   <div className='px-[16px] py-[22px] text-sm w-[222.52px]'>Completed</div>
                   {/* arrow */}
-                  <img src={Arrow.src} alt="" className='ml-[14px]'/>
+                  <img src={Arrow.src} alt="" className='ml-[14px]' />
                 </div>}
               {/* loading */}
               {/* data */}
@@ -301,9 +304,9 @@ export default function Home() {
                 {service.map(
                   (item, index) => (
                     <>
-                      {item === 'P2P Merchant Application' ? <img src={Merchant.src} alt="" className='w-[162px] ml-[1px]' /> :
+                      {item === 'P2P Merchant Application' ? <img src={Merchant.src} alt="" className='w-[162px] ml-[1px]' key='img-p2p' /> :
                         item === 'P2Pro Merchant Application' ?
-                          <div className='flex flex-col mt-[14px] mb-[14px]'>
+                          <div className='flex flex-col mt-[14px] mb-[14px]' key="img-p2pro">
                             <img src={MerchantPro.src} alt="" className='w-[102px] mb-[1px] ml-[1px]' />
                             <img src={MerchantPro1.src} alt="" className='w-[102px] ml-[1px]' />
                           </div>
@@ -324,7 +327,7 @@ export default function Home() {
                   (item, index) => (
                     <>
                       {item === '24/7 Chat Support' ?
-                        <img src={Chatsupport.src} alt="" className='h-auto w-[114px] mb-[13px] ml-[1px]' />
+                        <img src={Chatsupport.src} alt="" className='h-auto w-[114px] mb-[13px] ml-[1px]' key="img-chat" />
                         : <div className='mb-[12px] text-[#707A8A] text-sm leading-[1.5]' key={index}>{item}</div>}
                     </>
                   )
