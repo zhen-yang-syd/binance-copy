@@ -619,20 +619,22 @@ export default function Home() {
               <div className='w-[220px] h-[139px] flex flex-row flex-wrap gap-x-[34px] ml-[1px]'>
                 {community.map(
                   (item, index) => (
-                    <img src={item.icon.src} alt="" key={index} className={`
+                    <picture>
+                      <img src={item.icon.src} alt="" key={index} className={`
                     ${item.title === 'Discord' ? 'w-[20px] h-[20px] mb-[1px]' :
-                        item.title === 'Telegram' ? 'w-[20px] h-[20px] mb-[1px]' :
-                          item.title === 'Tiktok' ? 'w-[16px] h-[18px] ml-[2px] mt-[1px] mb-[1px]' :
-                            item.title === 'Facebook' ? 'w-[20px] h-[19.7px] ml-[2px]' :
-                              item.title === 'Twitter' ? 'w-[18.33px] h-[17.88px] mt-[1px] ml-[1px]' :
-                                item.title === 'Reddit' ? 'w-[20px] h-[20px] mb-[2px]' :
-                                  item.title === 'Ins' ? 'w-[18px] h-[18px] ml-[1px] mt-[1px]' :
-                                    item.title === 'Coinmarket' ? 'w-[20px] h-[20px] ml-[1px]' :
-                                      item.title === 'Trademarket' ? 'w-[20px] h-[20px] mb-[2px]' :
-                                        item.title === 'Youtube' ? 'w-[22px] h-[15.18px] mt-[3px] -ml-[1px]' :
-                                          null
-                      }
+                          item.title === 'Telegram' ? 'w-[20px] h-[20px] mb-[1px]' :
+                            item.title === 'Tiktok' ? 'w-[16px] h-[18px] ml-[2px] mt-[1px] mb-[1px]' :
+                              item.title === 'Facebook' ? 'w-[20px] h-[19.7px] ml-[2px]' :
+                                item.title === 'Twitter' ? 'w-[18.33px] h-[17.88px] mt-[1px] ml-[1px]' :
+                                  item.title === 'Reddit' ? 'w-[20px] h-[20px] mb-[2px]' :
+                                    item.title === 'Ins' ? 'w-[18px] h-[18px] ml-[1px] mt-[1px]' :
+                                      item.title === 'Coinmarket' ? 'w-[20px] h-[20px] ml-[1px]' :
+                                        item.title === 'Trademarket' ? 'w-[20px] h-[20px] mb-[2px]' :
+                                          item.title === 'Youtube' ? 'w-[22px] h-[15.18px] mt-[3px] -ml-[1px]' :
+                                            null
+                        }
                     `} />
+                    </picture>
                   )
                 )}
               </div>
