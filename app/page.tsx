@@ -133,10 +133,14 @@ export default function Home() {
           <div className='modal'>
             <div className='modal-title'>
               <div className='title'>Select a Time Range</div>
-              <img src={Cross.src} alt="" className='mb-[2px] mr-[1px]' />
+              <picture>
+                <img src={Cross.src} alt="" className='mb-[2px] mr-[1px]' />
+              </picture>
             </div>
             <div className='modal-subtitle'>
-              <img src={Subtitle.src} alt="" className='mt-[3px]' />
+              <picture>
+                <img src={Subtitle.src} alt="" className='mt-[3px]' />
+              </picture>
             </div>
             <div className='modal-dateselector'>
               <div className='wrapper'>
@@ -151,8 +155,10 @@ export default function Home() {
                       </div>
                       {/* time */}
                       <div className='flex flex-row mx-auto mt-[3px]'>
-                        <img src={May202.src} alt="" className='h-[16px]' />
-                        {year === '2' ? <img src={May2.src} alt="" className='h-[12px] w-[8px] ' /> : <img src={May3.src} alt="" className='h-[13px] w-[8px]' />}
+                        <picture>
+                          <img src={May202.src} alt="" className='h-[16px]' />
+                        </picture>
+                        {year === '2' ? <picture><img src={May2.src} alt="" className='h-[12px] w-[8px] ' /></picture> : <picture><img src={May3.src} alt="" className='h-[13px] w-[8px]' /></picture>}
                       </div>
                       {/* right */}
                       <div className='flex flex-row'>
@@ -161,17 +167,21 @@ export default function Home() {
                       </div>
                     </div>
                     {year === '2' ? <div className=''>
-                      <img src={Week.src} alt="" className='mx-auto pt-[10px] ml-[8px] cursor-text' />
+                      <picture>
+                        <img src={Week.src} alt="" className='mx-auto pt-[10px] ml-[8px] cursor-text' />
+                      </picture>
                       <div className='flex flex-row mt-[11px]'>
                         <div className='w-[32px] h-[32px] flex justify-center items-center cursor-pointer rounded-[4px] hover:bg-[#fef6d8]' onMouseEnter={() => { setSelectDate('20220501'); setHoverOne(true) }} onMouseLeave={() => { setHoverOne(false) }} onClick={handleSelectOne}>
-                          {hoverOne ? <img src={OneHover.src} alt="" className="h-[12.2px]" /> : <img src={One.src} alt="" />}
+                          {hoverOne ? <picture><img src={OneHover.src} alt="" className="h-[12.2px]" /></picture> : <picture><img src={One.src} alt="" /></picture>}
                         </div>
                         <div className='h-[32px] flex justify-center items-center ml-[12px] cursor-pointer'>
-                          <img src={R1.src} alt="" className='' />
+                          <picture>
+                            <img src={R1.src} alt="" className='' />
+                          </picture>
                         </div>
                       </div>
-                      <img src={Date20220523.src} alt="" className='mx-auto pt-[12px]' />
-                    </div> : <img src={Date202305.src} alt="" className='mx-auto pt-[10px]' />}
+                      <picture><img src={Date20220523.src} alt="" className='mx-auto pt-[12px]' /></picture>
+                    </div> : <picture><img src={Date202305.src} alt="" className='mx-auto pt-[10px]' /></picture>}
                   </div>}
                   <div
                     className={`start-picker border-[1px] ${clickStartTime ? 'border-[#f0b90b]' : 'border-[#eaecef]'} relative`}
@@ -180,7 +190,7 @@ export default function Home() {
                     onClick={() => setClickStartTime(!clickStartTime)}
                   >
                     <div className='w-full h-full flex flex-row items-center pl-[8px] relative'>
-                      {selectDate === '20230523' ? <img src={Date20230523.src} alt="" className='h-[13px] mb-[2px]' /> : <img src={Date20220501.src} alt="" className='h-[12px] mb-[2px]' />}
+                      {selectDate === '20230523' ? <picture><img src={Date20230523.src} alt="" className='h-[13px] mb-[2px]' /></picture> : <picture><img src={Date20220501.src} alt="" className='h-[12px] mb-[2px]' /></picture>}
                       <span className={`${isHovered ? 'opacity-1' : 'opacity-0'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i"><rect width="16" height="16" rx="8" fill="currentColor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12 11.117l-.883.878-3.122-3.117L4.883 12l-.878-.883L7.117 8 4 4.883l.883-.878 3.112 3.117L11.117 4l.873.883L8.878 8 12 11.117z" fill="#FEFEFE"></path></svg>
                       </span>
@@ -200,7 +210,7 @@ export default function Home() {
                     onClick={() => setClickEndTime(!clickEndTime)}
                   >
                     <div className='w-full h-full  flex flex-row items-center pl-[8px] relative'>
-                      {showText ? <img src={Date20230501.src} alt="" className='h-[13px] mb-[3px] ml-[1px]' /> : <img src={Date20230823.src} alt="" className='h-[13px] mb-[2px]' />}
+                      {showText ? <picture><img src={Date20230501.src} alt="" className='h-[13px] mb-[3px] ml-[1px]' /></picture> : <picture><img src={Date20230823.src} alt="" className='h-[13px] mb-[2px]' /></picture>}
                       <span className={`${isHoveredEnd ? 'opacity-1' : 'opacity-0'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i"><rect width="16" height="16" rx="8" fill="currentColor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12 11.117l-.883.878-3.122-3.117L4.883 12l-.878-.883L7.117 8 4 4.883l.883-.878 3.112 3.117L11.117 4l.873.883L8.878 8 12 11.117z" fill="#FEFEFE"></path></svg>
                       </span>
@@ -238,9 +248,11 @@ export default function Home() {
           </nav >
         </div>
         <div className='flex flex-row items-center'>
-          <img src={Search.src} alt="" className='w-[21px] h-[19px] mr-[17px] mb-[1px]' />
+          <picture>
+            <img src={Search.src} alt="" className='w-[21px] h-[19px] mr-[17px] mb-[1px]' />
+          </picture>
           <button className='px-[12px] py-[6px] text-sm bg-[#FCD535] text-[#181A20] leading-[20px] rounded-[4px] flex flex-row'>
-            <img src={DownLoad.src} alt="" className='mt-[2px] mr-[2px]' />
+            <picture><img src={DownLoad.src} alt="" className='mt-[2px] mr-[2px]' /></picture>
             Deposit
           </button>
           <nav className="flex flex-row ml-[16px] mb-[1px]">
@@ -252,12 +264,12 @@ export default function Home() {
               </a>
             ))}
           </nav >
-          <img src={Avatar.src} alt="" className='ml-[3px] mb-[4px]' />
-          <img src={Alert.src} alt="" className='ml-[20px] mb-[12px]' />
-          <img src={Down.src} alt="" className='ml-[7px] mb-[1px]' />
-          <img src={Language.src} alt="" className='ml-[21px] mb-[2px]' />
-          <img src={Divider.src} alt="" className='ml-[17px] -mb-[0px] h-[14px]' />
-          <img src={Night.src} alt="" className='ml-[8px] -mb-[0px] mr-[18px]' />
+          <picture><img src={Avatar.src} alt="" className='ml-[3px] mb-[4px]' /></picture>
+          <picture><img src={Alert.src} alt="" className='ml-[20px] mb-[12px]' /></picture>
+          <picture><img src={Down.src} alt="" className='ml-[7px] mb-[1px]' /></picture>
+          <picture><img src={Language.src} alt="" className='ml-[21px] mb-[2px]' /></picture>
+          <picture><img src={Divider.src} alt="" className='ml-[17px] -mb-[0px] h-[14px]' /></picture>
+          <picture><img src={Night.src} alt="" className='ml-[8px] -mb-[0px] mr-[18px]' /></picture>
         </div>
       </header>
       <ScrollBar />
@@ -267,14 +279,16 @@ export default function Home() {
           {leftNav1.map((item, index) => (
             <div className="flex flex-row items-center ml-[22px] h-[48px]" key={index}>
               <div className='w-[30px]'>
-                <img src={item.icon.src} alt="" className={`
+                <picture>
+                  <img src={item.icon.src} alt="" className={`
                 w-auto h-[20px] mr-[8px] ${item.title === 'Margin' ? 'mb-[2px] ml-[1px]'
-                    : item.title === 'Futures' ? 'mb-[2px] ml-[1px]'
-                      : item.title === 'Options' ? 'mb-[2px] ml-[1px]'
-                        : item.title === 'Earn' ? 'h-[27px] mb-[2px] -ml-[1px]'
-                          : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
-                  }
+                      : item.title === 'Futures' ? 'mb-[2px] ml-[1px]'
+                        : item.title === 'Options' ? 'mb-[2px] ml-[1px]'
+                          : item.title === 'Earn' ? 'h-[27px] mb-[2px] -ml-[1px]'
+                            : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
+                    }
                 `} />
+                </picture>
               </div>
               <span>{item.title}</span>
             </div>
@@ -284,14 +298,16 @@ export default function Home() {
           {leftNav2.map((item, index) => (
             <div className="flex flex-row items-center ml-[22px] h-[48px]" key={index}>
               <div className='w-[30px]'>
-                <img src={item.icon.src} alt="" className={`
+                <picture>
+                  <img src={item.icon.src} alt="" className={`
                 w-auto h-[20px] mr-[8px] ${item.title === 'Margin' ? 'mb-[2px] ml-[1px]'
-                    : item.title === 'Futures' ? 'mb-[2px] ml-[1px]'
-                      : item.title === 'Options' ? 'mb-[2px] ml-[1px]'
-                        : item.title === 'Earn' ? 'h-[27px] mb-[2px] -ml-[1px]'
-                          : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
-                  }
+                      : item.title === 'Futures' ? 'mb-[2px] ml-[1px]'
+                        : item.title === 'Options' ? 'mb-[2px] ml-[1px]'
+                          : item.title === 'Earn' ? 'h-[27px] mb-[2px] -ml-[1px]'
+                            : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
+                    }
                 `} />
+                </picture>
               </div>
               <span>{item.title}</span>
             </div>
@@ -301,14 +317,16 @@ export default function Home() {
           {leftNav3.map((item, index) => (
             <div className={`flex flex-row items-center pl-[22px] h-[48px] ${item.title === 'Transaction History' && 'bg-[#f5f5f5] border-l-[4px] border-[#f0b90b]'}`} key={index}>
               <div className='w-[30px]'>
-                <img src={item.icon.src} alt="" className={`
+                <picture>
+                  <img src={item.icon.src} alt="" className={`
                 w-auto h-[20px] mr-[8px] ${item.title === 'Margin' ? 'mb-[2px] ml-[1px]'
-                    : item.title === 'Transaction History' ? 'mb-[2px] -ml-[4px]'
-                      : item.title === 'Account Statement' ? 'mb-[2px] ml-[0px]'
-                        : item.title === 'Verification' ? 'h-[21px] mb-[2px] ml-[2px]'
-                          : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
-                  }
+                      : item.title === 'Transaction History' ? 'mb-[2px] -ml-[4px]'
+                        : item.title === 'Account Statement' ? 'mb-[2px] ml-[0px]'
+                          : item.title === 'Verification' ? 'h-[21px] mb-[2px] ml-[2px]'
+                            : item.title === 'Funding' ? 'h-[22px] -ml-[1px]' : ''
+                    }
                 `} />
+                </picture>
               </div>
               <span className={`${item.title === 'Transaction History' && 'text-[#1E2326] font-medium -ml-[4px]'}`}>{item.title}</span>
             </div>
@@ -350,7 +368,7 @@ export default function Home() {
                       {type.map((item, index) => (
                         <div className={` cursor-pointer flex flex-row justify-between items-center py-[10px] px-[16px] leading-[20px] text-sm hover:bg-[#f5f5f5] mr-[10px] ${item.value === selectType ? 'text-[#c99400]' : 'text-[#1E2329]'}`} key={index} onClick={() => handleSelectType(item.value)}>
                           {item.title}
-                          {item.value === selectType && <img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' />}
+                          {item.value === selectType && <picture><img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' /></picture>}
                         </div>
                       ))}
                     </div>
@@ -359,10 +377,10 @@ export default function Home() {
                 {/* Time */}
                 <div className='flex flex-col mb-[16px] mr-[16px] relative'>
                   <div className={`${showText ? 'w-[203px]' : 'w-[170px]'} h-[40px] mt-[32px] border-[1px] border-[#eaecef] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative`} onClick={handleTimeClick}>
-                    {selectTime === 'past7days' ? <img src={Past7.src} alt="" className='mt-[2px] ml-[1px]' /> :
-                      selectTime === 'past30days' ? <img src={Past30Days.src} alt="" className='ml-[1px]' /> :
-                        selectTime === 'past90days' ? <img src={Past90.src} alt="" className='mt-[2px] ml-[1px]' />
-                          : showText ? <img src={Range.src} alt="" className='mb-[2px]' /> : <img src={Past30Days.src} alt="" className='ml-[1px]' />}
+                    {selectTime === 'past7days' ? <picture><img src={Past7.src} alt="" className='mt-[2px] ml-[1px]' /></picture> :
+                      selectTime === 'past30days' ? <picture><img src={Past30Days.src} alt="" className='ml-[1px]' /></picture> :
+                        selectTime === 'past90days' ? <picture><img src={Past90.src} alt="" className='mt-[2px] ml-[1px]' /></picture>
+                          : showText ? <picture><img src={Range.src} alt="" className='mb-[2px]' /></picture> : <picture><img src={Past30Days.src} alt="" className='ml-[1px]' /></picture>}
                     <span className='text-[#474D57] text-sm leading-[32px] absolute -top-[32px] left-0'>Time</span>
                     <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${timeClick ? 'rotate-180' : ''}`} />
                   </div>
@@ -371,12 +389,12 @@ export default function Home() {
                       {/* list */}
                       {time.map((item, index) => (
                         <div className={`cursor-pointer flex flex-row justify-between items-center py-[10px] px-[16px] leading-[20px] text-sm hover:bg-[#f5f5f5] mr-[10px] ${item.value === selectTime ? 'text-[#c99400]' : 'text-[#1E2329]'}`} key={index} onClick={() => handleSelectTime(item.value)}>
-                          {item.value === 'past7days' ? <img src={Past7.src} alt="" className='mt-[3px] ml-[1px]' /> :
-                            item.value === 'past30days' ? selectTime === 'past30days' ? <img src={Past30Select.src} alt="" className='mt-[3px]' /> : <img src={Past30.src} alt="" className='mt-[3px]' /> :
-                              item.value === 'past90days' ? <img src={Past90.src} alt="" className='mt-[4px] ml-[1px]' /> :
+                          {item.value === 'past7days' ? <picture><img src={Past7.src} alt="" className='mt-[3px] ml-[1px]' /></picture> :
+                            item.value === 'past30days' ? selectTime === 'past30days' ? <picture><img src={Past30Select.src} alt="" className='mt-[3px]' /></picture> : <picture><img src={Past30.src} alt="" className='mt-[3px]' /></picture> :
+                              item.value === 'past90days' ? <picture><img src={Past90.src} alt="" className='mt-[4px] ml-[1px]' /></picture> :
                                 item.title
                           }
-                          {item.value === selectTime && <img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' />}
+                          {item.value === selectTime && <picture><img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' /></picture>}
                         </div>
                       ))}
                     </div>
@@ -439,7 +457,7 @@ export default function Home() {
                   <div className='w-full flex flex-row items-center text-[#474D57] text-[12px] border-b-[1px] border-[#eaecef]'>
                     {/* time */}
                     <div className='px-[16px] py-[22px] text-sm w-[236.13px] number'>
-                      <img src={Date.src} alt="" />
+                      <picture><img src={Date.src} alt="" /></picture>
                     </div>
                     {/* type */}
                     <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>Deposit</div>
@@ -450,27 +468,27 @@ export default function Home() {
                     <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>USDT</div>
                     {/* amount */}
                     <div className='px-[16px] py-[22px] text-sm w-[127.27px] number'>
-                      <img src={Withdraw.src} alt="" className='mb-[1px]' />
+                      <picture><img src={Withdraw.src} alt="" className='mb-[1px]' /></picture>
                     </div>
                     {/* destination */}
                     <div className='px-[16px] py-[22px] text-sm w-[236.13px]'>
-                      <img src={D1.src} alt="" className='mt-[1px] -ml-[1px]' />
+                      <picture><img src={D1.src} alt="" className='mt-[1px] -ml-[1px]' /></picture>
                     </div>
                     {/* txid */}
                     <div className='px-[16px] py-[22px] text-sm w-[270.14px]'>
-                      <img src={T1.src} alt="" />
+                      <picture><img src={T1.src} alt="" /></picture>
                     </div>
                     {/* status */}
                     <div className='px-[16px] py-[22px] text-sm w-[222.52px]'>Completed</div>
                     {/* arrow */}
-                    <img src={Arrow.src} alt="" className='ml-[14px]' />
+                    <picture><img src={Arrow.src} alt="" className='ml-[14px]' /></picture>
                   </div>
                   :
                   showText && finished ?
                     <div className='w-full flex flex-row items-center text-[#474D57] text-[12px] border-b-[1px] border-[#eaecef]'>
                       {/* time */}
                       <div className='px-[16px] py-[22px] text-sm w-[236.13px] number'>
-                        <img src={Date20220904.src} alt="" className='mb-[1px] mr-[1px]'/>
+                        <picture><img src={Date20220904.src} alt="" className='mb-[1px] mr-[1px]' /></picture>
                       </div>
                       {/* type */}
                       <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>Deposit</div>
@@ -481,20 +499,20 @@ export default function Home() {
                       <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>USDT</div>
                       {/* amount */}
                       <div className='px-[16px] py-[22px] text-sm w-[127.27px] number'>
-                        <img src={W1.src} alt="" className='mb-[1px]' />
+                        <picture><img src={W1.src} alt="" className='mb-[1px]' /></picture>
                       </div>
                       {/* destination */}
                       <div className='px-[16px] py-[22px] text-sm w-[236.13px]'>
-                        <img src={D2.src} alt="" className='mt-[2px] -ml-[1px]' />
+                        <picture><img src={D2.src} alt="" className='mt-[2px] -ml-[1px]' /></picture>
                       </div>
                       {/* txid */}
                       <div className='px-[16px] py-[22px] text-sm w-[270.14px]'>
-                        <img src={T2.src} alt="" className='mt-[1px]'/>
+                        <picture><img src={T2.src} alt="" className='mt-[1px]' /></picture>
                       </div>
                       {/* status */}
                       <div className='px-[16px] py-[22px] text-sm w-[222.52px]'>Completed</div>
                       {/* arrow */}
-                      <img src={Arrow.src} alt="" className='ml-[14px]' />
+                      <picture><img src={Arrow.src} alt="" className='ml-[14px]' /></picture>
                     </div>
                     :
                     // empty content
@@ -550,11 +568,11 @@ export default function Home() {
                 {service.map(
                   (item, index) => (
                     <>
-                      {item === 'P2P Merchant Application' ? <img src={Merchant.src} alt="" className='w-[162px] ml-[1px]' key='img-p2p' /> :
+                      {item === 'P2P Merchant Application' ? <picture><img src={Merchant.src} alt="" className='w-[162px] ml-[1px]' key='img-p2p' /></picture> :
                         item === 'P2Pro Merchant Application' ?
                           <div className='flex flex-col mt-[14px] mb-[14px]' key="img-p2pro">
-                            <img src={MerchantPro.src} alt="" className='w-[102px] mb-[1px] ml-[1px]' />
-                            <img src={MerchantPro1.src} alt="" className='w-[102px] ml-[1px]' />
+                            <picture><img src={MerchantPro.src} alt="" className='w-[102px] mb-[1px] ml-[1px]' /></picture>
+                            <picture><img src={MerchantPro1.src} alt="" className='w-[102px] ml-[1px]' /></picture>
                           </div>
                           :
                           <div className='mb-[12px] text-[#707A8A] text-sm leading-[1.5]' key={index}>{item}</div>}
@@ -573,7 +591,7 @@ export default function Home() {
                   (item, index) => (
                     <>
                       {item === '24/7 Chat Support' ?
-                        <img src={Chatsupport.src} alt="" className='h-auto w-[114px] mb-[13px] ml-[1px]' key="img-chat" />
+                        <picture><img src={Chatsupport.src} alt="" className='h-auto w-[114px] mb-[13px] ml-[1px]' key="img-chat" /></picture>
                         : <div className='mb-[12px] text-[#707A8A] text-sm leading-[1.5]' key={index}>{item}</div>}
                     </>
                   )
@@ -622,7 +640,9 @@ export default function Home() {
           </div>
           <div className='border-t-[1px] border-[#eaecef] flex flex-col justify-center items-center'>
             {/* <div className='text-[#707A8A] text-sm py-[32px] text-center'>Binance © 2023</div> */}
-            <img src={Binance2023.src} alt="" className='my-[32px] w-[97px] -ml-[10px]' />
+            <picture>
+              <img src={Binance2023.src} alt="" className='my-[32px] w-[97px] -ml-[10px]' />
+            </picture>
           </div>
         </div>
       </div>
