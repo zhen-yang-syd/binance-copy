@@ -75,6 +75,10 @@ import One from './1.png'
 import OneHover from './hover1.png'
 import Date20220501 from './20220501.png'
 import Date20230501 from './20230501.png'
+import Date20220904 from './20220904.png'
+import D2 from './d2.png'
+import T2 from './t2.png'
+import W1 from './56.png'
 
 
 export {
@@ -145,5 +149,9 @@ export {
     One,
     OneHover,
     Date20220501,
-    Date20230501
+    Date20230501,
+    Date20220904,
+    D2,
+    T2,
+    W1
 };
