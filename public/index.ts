@@ -58,7 +58,7 @@ import Past7 from './past7.png'
 import Past30 from './past30.png'
 import Past30Select from './past30select.png'
 import Past90 from './past90.png'
-import Range from './20220501.png'
+import Range from './Range.png'
 import Cross from './cross.png'
 
 import Subtitle from './subtitle.png'
@@ -73,6 +73,8 @@ import Week from './week.png'
 import R1 from './2022r1.png'
 import One from './1.png'
 import OneHover from './hover1.png'
+import Date20220501 from './20220501.png'
+import Date20230501 from './20230501.png'
 
 
 export {
@@ -141,5 +143,7 @@ export {
     Week,
     R1,
     One,
-    OneHover
+    OneHover,
+    Date20220501,
+    Date20230501
 };

@@ -45,7 +45,9 @@ import {
   Week,
   R1,
   One,
-  OneHover
+  OneHover,
+  Date20220501,
+  Date20230501
 } from '@/public'
 import ScrollBar from '@/components/ScrollBar'
 import Loading from '@/components/Loading'
@@ -101,10 +103,27 @@ export default function Home() {
   const [year, setYear] = useState<string>('3')
   const [hoverOne, setHoverOne] = useState(false)
   const [selectOne, setSelectOne] = useState(false)
+  const [selectDate, setSelectDate] = useState<string>('20230523')
+  const [showText, setShowText] = useState(false)
+  const handleSelectOne = () => {
+    setShowText(true)
+    setClickStartTime(false)
+    setSelectDate('20220501')
+    console.log('select one')
+  }
+  const handleContinue = ()=>{
+    setSelectTime('')
+    setLoading(true)
+    const timer = setTimeout(() => {
+      setLoading(false)
+      return () => clearTimeout(timer)
+    }
+    , 2000)
+  }
   return (
     <main className="w-full bg-[#ffffff] relative">
       {selectTime === 'customized' && <div className='absolute w-full h-full modal-mask'>
-        <div className='w-[484px] h-[280px] bg-white modal-container'>
+        <div className='w-[484px]  bg-white modal-container'>
           <div className='modal'>
             <div className='modal-title'>
               <div className='title'>Select a Time Range</div>
@@ -118,28 +137,28 @@ export default function Home() {
                 <div className='start'>
                   <div className='start-title'>Start time</div>
                   {clickStartTime && <div className='absolute time-picker-start bg-white w-[280px] h-[315px] z-50 left-[25px] top-[171px] px-[28px] py-[22px]'>
-                      <div className='w-full flex flex-row mb-[16px] mt-[1px]'>
-                        {/* left */}
-                        <div className='flex flex-row'>
-                          <svg onClick={(e)=>{e.stopPropagation();setYear('2')}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path><path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path></svg>
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path></svg>
-                        </div>
-                        {/* time */}
-                        <div className='flex flex-row mx-auto mt-[3px]'>
-                          <img src={May202.src} alt="" className='h-[16px]' />
-                          {year === '2' ? <img src={May2.src} alt="" className='h-[12px] w-[8px] ' /> : <img src={May3.src} alt="" className='h-[13px] w-[8px]' />}
-                        </div>
-                        {/* right */}
-                        <div className='flex flex-row'>
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M8.825 8L3.95 12.95 5 14l6-6-6-6-1.05 1.05L8.825 8z" fill="currentColor"></path></svg>
-                          <svg onClick={(e)=>{e.stopPropagation();setYear('3')}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 3.05L5.875 8 1 12.95 2.05 14l6-6-6-6L1 3.05zm5 0L10.875 8 6 12.95 7.05 14l6-6-6-6L6 3.05z" fill="currentColor"></path></svg>
-                        </div>
+                    <div className='w-full flex flex-row mb-[16px] mt-[1px]'>
+                      {/* left */}
+                      <div className='flex flex-row'>
+                        <svg onClick={(e) => { e.stopPropagation(); setYear('2') }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path><path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path></svg>
                       </div>
-                      {year === '2' ? <div className=''>
+                      {/* time */}
+                      <div className='flex flex-row mx-auto mt-[3px]'>
+                        <img src={May202.src} alt="" className='h-[16px]' />
+                        {year === '2' ? <img src={May2.src} alt="" className='h-[12px] w-[8px] ' /> : <img src={May3.src} alt="" className='h-[13px] w-[8px]' />}
+                      </div>
+                      {/* right */}
+                      <div className='flex flex-row'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M8.825 8L3.95 12.95 5 14l6-6-6-6-1.05 1.05L8.825 8z" fill="currentColor"></path></svg>
+                        <svg onClick={(e) => { e.stopPropagation(); setYear('3') }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 3.05L5.875 8 1 12.95 2.05 14l6-6-6-6L1 3.05zm5 0L10.875 8 6 12.95 7.05 14l6-6-6-6L6 3.05z" fill="currentColor"></path></svg>
+                      </div>
+                    </div>
+                    {year === '2' ? <div className=''>
                       <img src={Week.src} alt="" className='mx-auto pt-[10px] ml-[8px] cursor-text' />
                       <div className='flex flex-row mt-[11px]'>
-                        <div className='w-[32px] h-[32px] flex justify-center items-center cursor-pointer rounded-[4px] hover:bg-[#fef6d8]' onMouseEnter={()=>setHoverOne(true)} onMouseLeave={()=>setHoverOne(false)}>
-                          {hoverOne ? <img src={OneHover.src} alt="" className="h-[12.2px]"/>:<img src={One.src} alt="" />}
+                        <div className='w-[32px] h-[32px] flex justify-center items-center cursor-pointer rounded-[4px] hover:bg-[#fef6d8]' onMouseEnter={() => { setSelectDate('20220501'); setHoverOne(true)}} onMouseLeave={() => {setHoverOne(false)}} onClick={handleSelectOne}>
+                          {hoverOne ? <img src={OneHover.src} alt="" className="h-[12.2px]" /> : <img src={One.src} alt="" />}
                         </div>
                         <div className='h-[32px] flex justify-center items-center ml-[12px] cursor-pointer'>
                           <img src={R1.src} alt="" className='' />
@@ -155,7 +174,7 @@ export default function Home() {
                     onClick={() => setClickStartTime(!clickStartTime)}
                   >
                     <div className='w-full h-full flex flex-row items-center pl-[8px] relative'>
-                      <img src={Date20230523.src} alt="" className='h-[13px] mb-[2px]' />
+                      {selectDate === '20230523' ? <img src={Date20230523.src} alt="" className='h-[13px] mb-[2px]' /> : <img src={Date20220501.src} alt="" className='h-[12px] mb-[2px]' />}
                       <span className={`${isHovered ? 'opacity-1' : 'opacity-0'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i"><rect width="16" height="16" rx="8" fill="currentColor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12 11.117l-.883.878-3.122-3.117L4.883 12l-.878-.883L7.117 8 4 4.883l.883-.878 3.112 3.117L11.117 4l.873.883L8.878 8 12 11.117z" fill="#FEFEFE"></path></svg>
                       </span>
@@ -175,7 +194,7 @@ export default function Home() {
                     onClick={() => setClickEndTime(!clickEndTime)}
                   >
                     <div className='w-full h-full  flex flex-row items-center pl-[8px] relative'>
-                      <img src={Date20230823.src} alt="" className='h-[13px] mb-[2px]' />
+                      {showText ? <img src={Date20230501.src} alt="" className='h-[13px] mb-[3px] ml-[1px]' /> : <img src={Date20230823.src} alt="" className='h-[13px] mb-[2px]' />}
                       <span className={`${isHoveredEnd ? 'opacity-1' : 'opacity-0'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i"><rect width="16" height="16" rx="8" fill="currentColor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12 11.117l-.883.878-3.122-3.117L4.883 12l-.878-.883L7.117 8 4 4.883l.883-.878 3.112 3.117L11.117 4l.873.883L8.878 8 12 11.117z" fill="#FEFEFE"></path></svg>
                       </span>
@@ -187,7 +206,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <button className='modal-button'>Continue</button>
+            {showText && <div className='text-[#4D4D57] text-sm'>The system automatically matches the maximum duration for you.</div>}
+            <button className='modal-button hover:opacity-90' onClick={handleContinue}>Continue</button>
           </div>
         </div>
       </div>}
@@ -332,11 +352,11 @@ export default function Home() {
                 </div>
                 {/* Time */}
                 <div className='flex flex-col mb-[16px] mr-[16px] relative'>
-                  <div className={`${selectTime === 'customized' ? 'w-[203px]' : 'w-[170px]'} h-[40px] mt-[32px] border-[1px] border-[#eaecef] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative`} onClick={handleTimeClick}>
+                  <div className={`${showText ? 'w-[203px]' : 'w-[170px]'} h-[40px] mt-[32px] border-[1px] border-[#eaecef] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative`} onClick={handleTimeClick}>
                     {selectTime === 'past7days' ? <img src={Past7.src} alt="" className='mt-[2px] ml-[1px]' /> :
                       selectTime === 'past30days' ? <img src={Past30Days.src} alt="" className='ml-[1px]' /> :
                         selectTime === 'past90days' ? <img src={Past90.src} alt="" className='mt-[2px] ml-[1px]' />
-                          : <img src={Range.src} alt="" className='mb-[3px]' />}
+                          : showText ? <img src={Range.src} alt="" className='mb-[2px]' /> : <img src={Past30Days.src} alt="" className='ml-[1px]' />}
                     <span className='text-[#474D57] text-sm leading-[32px] absolute -top-[32px] left-0'>Time</span>
                     <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${timeClick ? 'rotate-180' : ''}`} />
                   </div>
