@@ -56,7 +56,9 @@ import Check from './check.png'
 import Checkhover from './checkhover.png'
 import Past7 from './past7.png'
 import Past30 from './past30.png'
+import Past30Select from './past30select.png'
 import Past90 from './past90.png'
+import Range from './20220501.png'
 
 
 export {
@@ -110,5 +112,7 @@ export {
     Checkhover,
     Past7,
     Past30,
-    Past90
+    Past90,
+    Range,
+    Past30Select
 };

@@ -88,9 +88,10 @@ $text-disabled: #707a8a;
   border-radius: 4px;
   width: 191.66px;
   height: 228px;
-  top: 39px;
-  left: -1px;
+  top: 72px;
+  left: 0px;
 }
+
 .time-menu {
   position: absolute;
   z-index: 1100;
@@ -100,12 +101,137 @@ $text-disabled: #707a8a;
   border-radius: 4px;
   width: 170px;
   height: 168px;
-  top: 39px;
-  left: -1px;
+  top: 72px;
+  left: 0px;
 }
+
 .type-menu-list-container {
   padding: 4px 0px;
-    overflow-y: scroll;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+  overflow-y: scroll;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.css-ezm1fk {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 50px;
+  height: 35px;
+  text-align: center;
+  font-size: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.css-ezm1fk>div {
+  background-color: rgb(245, 188, 0);
+  height: 100%;
+  width: 3px;
+  display: inline-block;
+  margin: 0px 3px;
+  animation-name: animation-hqgv56;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes animation-hqgv56 {
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(0.4);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.css-1qoumk2 {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  animation-delay: -1.1s;
+}
+
+.css-1v19680 {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  animation-delay: -1s;
+}
+
+.css-1v90jie {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  animation-delay: -0.9s;
+}
+
+.css-19p0rvp {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  animation-delay: -0.8s;
+}
+
+.modal-mask {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: flex;
+  position: fixed;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  z-index: 1200;
+  flex-direction: unset;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-container {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  position: relative;
+  box-shadow: rgba(20, 21, 26, 0.16) 0px 8px 16px, rgba(71, 77, 87, 0.16) 0px 16px 32px, rgba(20, 21, 26, 0.1) 0px 0px 1px;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  animation: 0.3s ease-in-out 0s 1 normal none running animation-1wqz9z0;
+}
+
+@keyframes animation-1wqz9z0 {
+  0% {
+    transform: scale(0.95)
+  }
+
+  66% {
+    transform: scale(1.05)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
+
+.modal {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: flex;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  flex-direction: column;
+  border-radius: 6px;
+  width: 360px;
 }

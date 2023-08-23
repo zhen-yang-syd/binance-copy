@@ -30,13 +30,18 @@ import {
   Check,
   Past7,
   Past30,
-  Past90
+  Past90,
+  Range,
+  Past30Select
 } from '@/public'
 import ScrollBar from '@/components/ScrollBar'
+import Loading from '@/components/Loading'
 import { useState } from 'react'
 import { aboutUs, products, service, support, learn, community } from '@/utils/constants'
+import { clear } from 'console'
 export default function Home() {
   const [empty, isEmpty] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [typeClick, setTypeClick] = useState(false)
   const [timeClick, setTimeClick] = useState(false)
   const handleTypeClick = () => {
@@ -48,8 +53,13 @@ export default function Home() {
   const [selectType, setSelectType] = useState<string>('deposit')
   const [selectTime, setSelectTime] = useState<string>('past30days')
   const handleSelectType = (type: string) => {
+    setLoading(true)
     setSelectType(type)
     setTypeClick(false)
+    const timer = setTimeout(() => {
+      setLoading(false)
+      return () => clearTimeout(timer)
+    }, 2000)
   }
   const handleSelectTime = (time: string) => {
     setSelectTime(time)
@@ -57,6 +67,11 @@ export default function Home() {
   }
   return (
     <main className="w-full bg-[#ffffff] relative">
+      {selectTime === 'customized' && <div className='absolute w-full h-full modal-mask'>
+        <div className='w-[484px] h-[280px] bg-white modal-container'>
+          <div className='modal'></div>
+        </div>
+      </div>}
       <header className="w-full px-[16px] h-[64px] flex items-center justify-between">
         <div className='flex flex-row items-center h-full'>
           <a className="header-icon w-[120px] h-[24px] block ml-[8px]">
@@ -176,48 +191,51 @@ export default function Home() {
             <div className='w-full flex flex-row justify-between h-[96px]'>
               <div className='flex flex-row'>
                 {/* Type */}
-                <div className='flex flex-col mb-[16px] mr-[16px]'>
-                  <div className={`w-[150px] h-[40px] mt-[32px] border-[1px] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative ${typeClick ? 'border-[#f0b90b]' : 'border-[#eaecef]'}`} onClick={handleTypeClick}>
+                <div className='flex flex-col mb-[16px] mr-[16px] relative'>
+                  <div className={`w-[150px] h-[40px] mt-[32px] border-[1px] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative border-[#eaecef]`} onClick={handleTypeClick}>
                     {selectType === 'deposit' ? 'Deposit' : 'Withdraw'}
                     <span className='text-[#474D57] text-sm leading-[32px] absolute -top-[32px] left-0'>Type</span>
                     <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${typeClick ? 'rotate-180' : ''}`} />
-                    {typeClick && <div className='type-menu'>
-                      <div className='w-full h-full overflow-hidden relative type-menu-list-container pt-[4px]'>
-                        {/* scroll bar */}
-                        <div className='h-[205px] w-[6px] rounded-full bg-[#B7BDC6] absolute top-[2px] right-[2px]'></div>
-                        {/* list */}
-                        {type.map((item, index) => (
-                          <div className={`flex flex-row justify-between items-center py-[10px] px-[16px] leading-[20px] text-sm hover:bg-[#f5f5f5] mr-[10px] ${item.value === selectType ? 'text-[#c99400]' : 'text-[#1E2329]'}`} key={index} onClick={() => handleSelectType(item.value)}>
-                            {item.title}
-                            {item.value === selectType && <img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' />}
-                          </div>
-                        ))}
-                      </div>
-                    </div>}
                   </div>
+                  {typeClick && <div className='type-menu'>
+                    <div className='w-full h-full overflow-hidden relative type-menu-list-container pt-[4px]'>
+                      {/* scroll bar */}
+                      <div className='h-[205px] w-[6px] rounded-full bg-[#B7BDC6] absolute top-[2px] right-[2px]'></div>
+                      {/* list */}
+                      {type.map((item, index) => (
+                        <div className={` cursor-pointer flex flex-row justify-between items-center py-[10px] px-[16px] leading-[20px] text-sm hover:bg-[#f5f5f5] mr-[10px] ${item.value === selectType ? 'text-[#c99400]' : 'text-[#1E2329]'}`} key={index} onClick={() => handleSelectType(item.value)}>
+                          {item.title}
+                          {item.value === selectType && <img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' />}
+                        </div>
+                      ))}
+                    </div>
+                  </div>}
                 </div>
                 {/* Time */}
-                <div className='flex flex-col mb-[16px] mr-[16px]'>
-                  <div className={`w-[170px] h-[40px] mt-[32px] border-[1px] border-[#eaecef] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative ${timeClick ? 'border-[#f0b90b]' : 'border-[#eaecef]'}`} onClick={handleTimeClick}>
-                    <img src={Past30Days.src} alt="" className='ml-[1px]' />
+                <div className='flex flex-col mb-[16px] mr-[16px] relative'>
+                  <div className={`${selectTime === 'customized' ? 'w-[203px]' : 'w-[170px]'} h-[40px] mt-[32px] border-[1px] border-[#eaecef] hover:border-[#f0b90b] cursor-pointer rounded-[4px] text-[#1e2329] text-sm flex items-center pl-[11px] relative`} onClick={handleTimeClick}>
+                    {selectTime === 'past7days' ? <img src={Past7.src} alt="" className='mt-[2px] ml-[1px]' /> :
+                      selectTime === 'past30days' ? <img src={Past30Days.src} alt="" className='ml-[1px]' /> :
+                        selectTime === 'past90days' ? <img src={Past90.src} alt="" className='mt-[2px] ml-[1px]' />
+                          : <img src={Range.src} alt="" className='mb-[3px]' />}
                     <span className='text-[#474D57] text-sm leading-[32px] absolute -top-[32px] left-0'>Time</span>
                     <BsFillCaretDownFill className={`w-[9px] h-[10px] text-disabled absolute right-[12px] mb-[0px] ${timeClick ? 'rotate-180' : ''}`} />
-                    {timeClick && <div className='time-menu'>
-                      <div className='w-full h-full overflow-hidden relative type-menu-list-container pt-[4px]'>
-                        {/* list */}
-                        {time.map((item, index) => (
-                          <div className={`flex flex-row justify-between items-center py-[10px] px-[16px] leading-[20px] text-sm hover:bg-[#f5f5f5] mr-[10px] ${item.value === selectTime ? 'text-[#c99400]' : 'text-[#1E2329]'}`} key={index} onClick={() => handleSelectTime(item.value)}>
-                            {item.value === 'past7days' ? <img src={Past7.src} alt="" className='mt-[3px] ml-[1px]'/> :
-                              item.value === 'past30days' ? <img src={Past30.src} alt="" className='mt-[3px]'/> :
-                                item.value === 'past90days' ? <img src={Past90.src} alt="" className='mt-[4px] ml-[1px]'/> :
-                                  item.title
-                            }
-                            {item.value === selectTime && <img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' />}
-                          </div>
-                        ))}
-                      </div>
-                    </div>}
                   </div>
+                  {timeClick && <div className='time-menu'>
+                    <div className='w-full h-full overflow-hidden relative type-menu-list-container pt-[4px]'>
+                      {/* list */}
+                      {time.map((item, index) => (
+                        <div className={`cursor-pointer flex flex-row justify-between items-center py-[10px] px-[16px] leading-[20px] text-sm hover:bg-[#f5f5f5] mr-[10px] ${item.value === selectTime ? 'text-[#c99400]' : 'text-[#1E2329]'}`} key={index} onClick={() => handleSelectTime(item.value)}>
+                          {item.value === 'past7days' ? <img src={Past7.src} alt="" className='mt-[3px] ml-[1px]' /> :
+                            item.value === 'past30days' ? selectTime === 'past30days' ? <img src={Past30Select.src} alt="" className='mt-[3px]' /> : <img src={Past30.src} alt="" className='mt-[3px]' /> :
+                              item.value === 'past90days' ? <img src={Past90.src} alt="" className='mt-[4px] ml-[1px]' /> :
+                                item.title
+                          }
+                          {item.value === selectTime && <img src={Check.src} alt="" className='w-[20px] h-[17px] mr-[1px] mb-[1px]' />}
+                        </div>
+                      ))}
+                    </div>
+                  </div>}
                 </div>
                 {/* Asset */}
                 <div className='flex flex-col mb-[16px] mr-[16px]'>
@@ -250,7 +268,8 @@ export default function Home() {
             </div>
             {/* table */}
             <div className='w-full h-[310px]'>
-              <div className='w-full h-[40px] bg-[#f5f5f5] rounded-t-[8px] flex flex-row items-center text-[#707A8A] text-[12px]'>
+              <div className='w-full h-[40px] bg-[#f5f5f5] rounded-t-[8px] flex flex-row items-center text-[#707A8A] text-[12px] relative'>
+                {loading && <Loading />}
                 {/* time */}
                 <div className='px-[16px] w-[236.13px]'>Time</div>
                 {/* type */}
@@ -270,41 +289,46 @@ export default function Home() {
                 <div className='px-[16px] w-[222.52px]'>Status</div>
               </div>
               {/* empty */}
-              {!empty ? <div className='w-full h-[270px] flex flex-col items-center justify-center py-[24px]'>
-                <div className='w-[96px] h-[96px] mb-[6px] mr-[1px]'>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" className="mirror css-1tx71v4"><path fillRule="evenodd" clipRule="evenodd" d="M64 8H26v80h58V28H64V8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4zm-8 12l4 4-4 4-4-4 4-4zM50 18l-3 3 3 3 3-3-3-3z" fill="url(#not-found-data_svg__paint0_linear_22059_32288)"></path><path opacity="0.3" d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z" fill="#929AA5"></path><path fillRule="evenodd" clipRule="evenodd" d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z" fill="url(#not-found-data_svg__paint1_linear_22059_32288)"></path><path fillRule="evenodd" clipRule="evenodd" d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z" fill="url(#not-found-data_svg__paint2_linear_22059_32288)"></path><defs><linearGradient id="not-found-data_svg__paint0_linear_22059_32288" x1="55" y1="8" x2="55" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5" stopOpacity="0.1"></stop><stop offset="1" stop-color="#929AA5" stopOpacity="0.25"></stop></linearGradient><linearGradient id="not-found-data_svg__paint1_linear_22059_32288" x1="4.172" y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient><linearGradient id="not-found-data_svg__paint2_linear_22059_32288" x1="15" y1="48" x2="55" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient></defs></svg>
-                </div>
-                <span className='text-[#707A8A] text-base'>No records found.</span>
-              </div> :
-                <div className='w-full flex flex-row items-center text-[#474D57] text-[12px] border-b-[1px] border-[#eaecef]'>
-                  {/* time */}
-                  <div className='px-[16px] py-[22px] text-sm w-[236.13px] number'>
-                    <img src={Date.src} alt="" />
+              {loading ? '' :
+                selectType === 'deposit' && selectTime === 'past30days' ?
+                  <div className='w-full flex flex-row items-center text-[#474D57] text-[12px] border-b-[1px] border-[#eaecef]'>
+                    {/* time */}
+                    <div className='px-[16px] py-[22px] text-sm w-[236.13px] number'>
+                      <img src={Date.src} alt="" />
+                    </div>
+                    {/* type */}
+                    <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>Deposit</div>
+                    {/* deposit wallet */}
+                    <div className='px-[16px] py-[22px] text-sm w-[168.08px]'>Spot Wallet</div>
+                    <div className='w-[32px]'></div>
+                    {/* asset */}
+                    <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>USDT</div>
+                    {/* amount */}
+                    <div className='px-[16px] py-[22px] text-sm w-[127.27px] number'>
+                      <img src={Withdraw.src} alt="" className='mb-[1px]' />
+                    </div>
+                    {/* destination */}
+                    <div className='px-[16px] py-[22px] text-sm w-[236.13px]'>
+                      <img src={D1.src} alt="" className='mt-[1px] -ml-[1px]' />
+                    </div>
+                    {/* txid */}
+                    <div className='px-[16px] py-[22px] text-sm w-[270.14px]'>
+                      <img src={T1.src} alt="" />
+                    </div>
+                    {/* status */}
+                    <div className='px-[16px] py-[22px] text-sm w-[222.52px]'>Completed</div>
+                    {/* arrow */}
+                    <img src={Arrow.src} alt="" className='ml-[14px]' />
                   </div>
-                  {/* type */}
-                  <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>Deposit</div>
-                  {/* deposit wallet */}
-                  <div className='px-[16px] py-[22px] text-sm w-[168.08px]'>Spot Wallet</div>
-                  <div className='w-[32px]'></div>
-                  {/* asset */}
-                  <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>USDT</div>
-                  {/* amount */}
-                  <div className='px-[16px] py-[22px] text-sm w-[127.27px] number'>
-                    <img src={Withdraw.src} alt="" className='mb-[1px]' />
+                  :
+                  // empty content
+                  <div className='w-full h-[270px] flex flex-col items-center justify-center py-[24px]'>
+                    <div className='w-[96px] h-[96px] mb-[6px] mr-[1px]'>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" className="mirror css-1tx71v4"><path fillRule="evenodd" clipRule="evenodd" d="M64 8H26v80h58V28H64V8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4zm-8 12l4 4-4 4-4-4 4-4zM50 18l-3 3 3 3 3-3-3-3z" fill="url(#not-found-data_svg__paint0_linear_22059_32288)"></path><path opacity="0.3" d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z" fill="#929AA5"></path><path fillRule="evenodd" clipRule="evenodd" d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z" fill="url(#not-found-data_svg__paint1_linear_22059_32288)"></path><path fillRule="evenodd" clipRule="evenodd" d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z" fill="url(#not-found-data_svg__paint2_linear_22059_32288)"></path><defs><linearGradient id="not-found-data_svg__paint0_linear_22059_32288" x1="55" y1="8" x2="55" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5" stopOpacity="0.1"></stop><stop offset="1" stop-color="#929AA5" stopOpacity="0.25"></stop></linearGradient><linearGradient id="not-found-data_svg__paint1_linear_22059_32288" x1="4.172" y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient><linearGradient id="not-found-data_svg__paint2_linear_22059_32288" x1="15" y1="48" x2="55" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#929AA5"></stop><stop offset="1" stop-color="#76808F"></stop></linearGradient></defs></svg>
+                    </div>
+                    <span className='text-[#707A8A] text-base'>No records found.</span>
                   </div>
-                  {/* destination */}
-                  <div className='px-[16px] py-[22px] text-sm w-[236.13px]'>
-                    <img src={D1.src} alt="" className='mt-[1px] -ml-[1px]' />
-                  </div>
-                  {/* txid */}
-                  <div className='px-[16px] py-[22px] text-sm w-[270.14px]'>
-                    <img src={T1.src} alt="" />
-                  </div>
-                  {/* status */}
-                  <div className='px-[16px] py-[22px] text-sm w-[222.52px]'>Completed</div>
-                  {/* arrow */}
-                  <img src={Arrow.src} alt="" className='ml-[14px]' />
-                </div>}
+              }
               {/* loading */}
               {/* data */}
             </div>
