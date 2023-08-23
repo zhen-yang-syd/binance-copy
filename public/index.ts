@@ -59,6 +59,11 @@ import Past30 from './past30.png'
 import Past30Select from './past30select.png'
 import Past90 from './past90.png'
 import Range from './20220501.png'
+import Cross from './cross.png'
+
+import Subtitle from './subtitle.png'
+import Date20230523 from './20230523.png'
+import Date20230823 from './20230823.png'
 
 
 export {
@@ -114,5 +119,9 @@ export {
     Past30,
     Past90,
     Range,
-    Past30Select
+    Past30Select,
+    Cross,
+    Subtitle,
+    Date20230523,
+    Date20230823
 };

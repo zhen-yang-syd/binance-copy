@@ -32,7 +32,11 @@ import {
   Past30,
   Past90,
   Range,
-  Past30Select
+  Past30Select,
+  Cross,
+  Subtitle,
+  Date20230523,
+  Date20230823
 } from '@/public'
 import ScrollBar from '@/components/ScrollBar'
 import Loading from '@/components/Loading'
@@ -65,11 +69,74 @@ export default function Home() {
     setSelectTime(time)
     setTimeClick(false)
   }
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  const [isHoveredEnd, setIsHoveredEnd] = useState(false);
+
+  const handleMouseEnterEnd = () => {
+    setIsHoveredEnd(true);
+  };
+
+  const handleMouseLeaveEnd = () => {
+    setIsHoveredEnd(false);
+  };
+  const [clickStartTime, setClickStartTime] = useState(false)
+  const [clickEndTime, setClickEndTime] = useState(false)
   return (
     <main className="w-full bg-[#ffffff] relative">
       {selectTime === 'customized' && <div className='absolute w-full h-full modal-mask'>
         <div className='w-[484px] h-[280px] bg-white modal-container'>
-          <div className='modal'></div>
+          <div className='modal'>
+            <div className='modal-title'>
+              <div className='title'>Select a Time Range</div>
+              <img src={Cross.src} alt="" className='mb-[2px] mr-[1px]' />
+            </div>
+            <div className='modal-subtitle'>
+              <img src={Subtitle.src} alt="" className='mt-[3px]' />
+            </div>
+            <div className='modal-dateselector'>
+              <div className='wrapper'>
+                <div className='start'>
+                  <div className='start-title'>Start time</div>
+                  <div className={`start-picker border-[1px] ${clickStartTime ? 'border-[#f0b90b]' : 'border-[#eaecef]'} relative`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={()=>setClickStartTime(!clickStartTime)}>
+                    {!clickStartTime && <div className='absolute time-picker-start bg-white w-[280px] h-[315px] z-50 top-[40px]'></div>}
+                    <div className='w-full h-full flex flex-row items-center pl-[8px] relative'>
+                      <img src={Date20230523.src} alt="" className='h-[13px] mb-[2px]' />
+                      <span className={`${isHovered ? 'opacity-1' : 'opacity-0'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i"><rect width="16" height="16" rx="8" fill="currentColor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12 11.117l-.883.878-3.122-3.117L4.883 12l-.878-.883L7.117 8 4 4.883l.883-.878 3.112 3.117L11.117 4l.873.883L8.878 8 12 11.117z" fill="#FEFEFE"></path></svg>
+                      </span>
+                      <span className={`${isHovered ? 'opacity-0' : 'opacity-1'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="css-ew2l8i"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 4H7v2H4v3.5h16V6h-3V4h-3v2h-4V4zm10 8H4v7h16v-7z" fill="currentColor"></path></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className='to'>to</div>
+                <div className='end'>
+                  <div className='end-title'>End time</div>
+                  <div className={`end-picker border-[1px] ${clickEndTime ? 'border-[#f0b90b]' : 'border-[#eaecef]'} relative`} onMouseEnter={handleMouseEnterEnd} onMouseLeave={handleMouseLeaveEnd} onClick={()=>setClickEndTime(!clickEndTime)}>
+                    <div className='w-full h-full  flex flex-row items-center pl-[8px] relative'>
+                      <img src={Date20230823.src} alt="" className='h-[13px] mb-[2px]' />
+                      <span className={`${isHoveredEnd ? 'opacity-1' : 'opacity-0'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i"><rect width="16" height="16" rx="8" fill="currentColor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12 11.117l-.883.878-3.122-3.117L4.883 12l-.878-.883L7.117 8 4 4.883l.883-.878 3.112 3.117L11.117 4l.873.883L8.878 8 12 11.117z" fill="#FEFEFE"></path></svg>
+                      </span>
+                      <span className={`${isHoveredEnd ? 'opacity-0' : 'opacity-1'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="css-ew2l8i"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 4H7v2H4v3.5h16V6h-3V4h-3v2h-4V4zm10 8H4v7h16v-7z" fill="currentColor"></path></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button className='modal-button'>Continue</button>
+          </div>
         </div>
       </div>}
       <header className="w-full px-[16px] h-[64px] flex items-center justify-between">
