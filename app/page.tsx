@@ -422,7 +422,7 @@ export default function Home() {
                 </div>
               </div>
               <div className='flex flex-row items-center mt-[10px]'>
-                <a href="" className='text-[#C99400] text-sm mr-[8px] underline'>Deposit hasn't arrived? Click here</a>
+                <a href="" className='text-[#C99400] text-sm mr-[8px] underline'>Deposit hasn&apos;t arrived? Click here</a>
                 <div className='flex flex-row items-center mt-[2px]'>
                   <div className="css-1g353mx mt-[5px]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="css-wg7atv"><path fill="currentColor" d="M4 4h5v2.5H4zM4 17.5h16V20H4z"></path><path fill="currentColor" d="M4 4h2.5v16H4zM17.5 15H20v5h-2.5z"></path><path fillRule="evenodd" clipRule="evenodd" d="M18.768 7.018l-8.485 8.485-1.768-1.768L17 5.25l.884.884.884.884z" fill="currentColor"></path><path d="M12 4h8v8l-8-8z" fill="currentColor"></path></svg></div>
                   <span className='text-[#707A8A] ml-[4px] text-sm'>Export Deposit History</span>
