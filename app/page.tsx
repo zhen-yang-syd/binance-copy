@@ -491,7 +491,7 @@ export default function Home() {
                         <picture><img src={Date20220904.src} alt="" className='mb-[1px] mr-[1px]' /></picture>
                       </div>
                       {/* type */}
-                      <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>Deposit</div>
+                      <div className='px-[16px] py-[22px] text-sm w-[127.27px]'>Withdraw</div>
                       {/* deposit wallet */}
                       <div className='px-[16px] py-[22px] text-sm w-[168.08px]'>Spot Wallet</div>
                       <div className='w-[32px]'></div>
