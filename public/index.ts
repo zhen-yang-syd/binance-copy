@@ -64,6 +64,15 @@ import Cross from './cross.png'
 import Subtitle from './subtitle.png'
 import Date20230523 from './20230523.png'
 import Date20230823 from './20230823.png'
+import Date202305 from './202305.png'
+import May2 from './may2.png'
+import May3 from './may3.png'
+import May202 from './may202.png'
+import Date20220523 from './Date20220523.png'
+import Week from './week.png'
+import R1 from './2022r1.png'
+import One from './1.png'
+import OneHover from './hover1.png'
 
 
 export {
@@ -123,5 +132,14 @@ export {
     Cross,
     Subtitle,
     Date20230523,
-    Date20230823
+    Date20230823,
+    Date202305,
+    May2,
+    May3,
+    May202,
+    Date20220523,
+    Week,
+    R1,
+    One,
+    OneHover
 };

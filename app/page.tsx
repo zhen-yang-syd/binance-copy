@@ -36,7 +36,16 @@ import {
   Cross,
   Subtitle,
   Date20230523,
-  Date20230823
+  Date20230823,
+  Date202305,
+  May2,
+  May3,
+  May202,
+  Date20220523,
+  Week,
+  R1,
+  One,
+  OneHover
 } from '@/public'
 import ScrollBar from '@/components/ScrollBar'
 import Loading from '@/components/Loading'
@@ -89,6 +98,9 @@ export default function Home() {
   };
   const [clickStartTime, setClickStartTime] = useState(false)
   const [clickEndTime, setClickEndTime] = useState(false)
+  const [year, setYear] = useState<string>('3')
+  const [hoverOne, setHoverOne] = useState(false)
+  const [selectOne, setSelectOne] = useState(false)
   return (
     <main className="w-full bg-[#ffffff] relative">
       {selectTime === 'customized' && <div className='absolute w-full h-full modal-mask'>
@@ -105,8 +117,43 @@ export default function Home() {
               <div className='wrapper'>
                 <div className='start'>
                   <div className='start-title'>Start time</div>
-                  <div className={`start-picker border-[1px] ${clickStartTime ? 'border-[#f0b90b]' : 'border-[#eaecef]'} relative`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={()=>setClickStartTime(!clickStartTime)}>
-                    {!clickStartTime && <div className='absolute time-picker-start bg-white w-[280px] h-[315px] z-50 top-[40px]'></div>}
+                  {clickStartTime && <div className='absolute time-picker-start bg-white w-[280px] h-[315px] z-50 left-[25px] top-[171px] px-[28px] py-[22px]'>
+                      <div className='w-full flex flex-row mb-[16px] mt-[1px]'>
+                        {/* left */}
+                        <div className='flex flex-row'>
+                          <svg onClick={(e)=>{e.stopPropagation();setYear('2')}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path><path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path></svg>
+                        </div>
+                        {/* time */}
+                        <div className='flex flex-row mx-auto mt-[3px]'>
+                          <img src={May202.src} alt="" className='h-[16px]' />
+                          {year === '2' ? <img src={May2.src} alt="" className='h-[12px] w-[8px] ' /> : <img src={May3.src} alt="" className='h-[13px] w-[8px]' />}
+                        </div>
+                        {/* right */}
+                        <div className='flex flex-row'>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path d="M8.825 8L3.95 12.95 5 14l6-6-6-6-1.05 1.05L8.825 8z" fill="currentColor"></path></svg>
+                          <svg onClick={(e)=>{e.stopPropagation();setYear('3')}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" className="css-ew2l8i text-[#707a8a] hover:text-[#f0b90b] cursor-pointer"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 3.05L5.875 8 1 12.95 2.05 14l6-6-6-6L1 3.05zm5 0L10.875 8 6 12.95 7.05 14l6-6-6-6L6 3.05z" fill="currentColor"></path></svg>
+                        </div>
+                      </div>
+                      {year === '2' ? <div className=''>
+                      <img src={Week.src} alt="" className='mx-auto pt-[10px] ml-[8px] cursor-text' />
+                      <div className='flex flex-row mt-[11px]'>
+                        <div className='w-[32px] h-[32px] flex justify-center items-center cursor-pointer rounded-[4px] hover:bg-[#fef6d8]' onMouseEnter={()=>setHoverOne(true)} onMouseLeave={()=>setHoverOne(false)}>
+                          {hoverOne ? <img src={OneHover.src} alt="" className="h-[12.2px]"/>:<img src={One.src} alt="" />}
+                        </div>
+                        <div className='h-[32px] flex justify-center items-center ml-[12px] cursor-pointer'>
+                          <img src={R1.src} alt="" className='' />
+                        </div>
+                      </div>
+                      <img src={Date20220523.src} alt="" className='mx-auto pt-[12px]' />
+                    </div> : <img src={Date202305.src} alt="" className='mx-auto pt-[10px]' />}
+                  </div>}
+                  <div
+                    className={`start-picker border-[1px] ${clickStartTime ? 'border-[#f0b90b]' : 'border-[#eaecef]'} relative`}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    onClick={() => setClickStartTime(!clickStartTime)}
+                  >
                     <div className='w-full h-full flex flex-row items-center pl-[8px] relative'>
                       <img src={Date20230523.src} alt="" className='h-[13px] mb-[2px]' />
                       <span className={`${isHovered ? 'opacity-1' : 'opacity-0'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
@@ -121,7 +168,12 @@ export default function Home() {
                 <div className='to'>to</div>
                 <div className='end'>
                   <div className='end-title'>End time</div>
-                  <div className={`end-picker border-[1px] ${clickEndTime ? 'border-[#f0b90b]' : 'border-[#eaecef]'} relative`} onMouseEnter={handleMouseEnterEnd} onMouseLeave={handleMouseLeaveEnd} onClick={()=>setClickEndTime(!clickEndTime)}>
+                  <div
+                    className={`end-picker border-[1px] ${clickEndTime ? 'border-[#f0b90b]' : 'border-[#eaecef]'} relative`}
+                    onMouseEnter={handleMouseEnterEnd}
+                    onMouseLeave={handleMouseLeaveEnd}
+                    onClick={() => setClickEndTime(!clickEndTime)}
+                  >
                     <div className='w-full h-full  flex flex-row items-center pl-[8px] relative'>
                       <img src={Date20230823.src} alt="" className='h-[13px] mb-[2px]' />
                       <span className={`${isHoveredEnd ? 'opacity-1' : 'opacity-0'} transition-all duration-500 ease-in-out w-[16px] text-base text-[#707a8a] absolute right-[8px]`}>
